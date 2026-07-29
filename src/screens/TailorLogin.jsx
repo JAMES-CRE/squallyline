@@ -1,74 +1,58 @@
-// screens/Login.jsx
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { 
-  Mail, 
-  Lock, 
-  Eye, 
-  EyeOff, 
+// screens/TailorLogin.jsx
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import {
   ArrowLeft,
-  AlertCircle,
-  User,
+  Mail,
+  Lock,
+  Eye,
+  EyeOff,
+  Briefcase,
+  Shield,
   LogIn,
-  Shield
-} from "lucide-react";
+  AlertCircle,
+} from 'lucide-react';
 
-const API_BASE = "http://127.0.0.1:8000/api/accounts";
-
-const Login = () => {
+const TailorLogin = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-
-  const [loginData, setLoginData] = useState({
-    username: "",
-    password: "",
-  });
-
-  const handleLoginChange = (e) => {
-    const { name, value } = e.target;
-    setLoginData((prev) => ({ ...prev, [name]: value }));
-    setError("");
-  };
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError("");
+    setError('');
     setLoading(true);
 
     try {
-      const response = await fetch(`${API_BASE}/login/`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(loginData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        const { access, refresh, user } = data.data;
-        localStorage.setItem("access_token", access);
-        localStorage.setItem("refresh_token", refresh);
-        localStorage.setItem("user", JSON.stringify(user));
-
-        if (user.role === "tailor") {
-          navigate("/tailor/dashboard");
-        } else {
-          navigate("/home");
-        }
-      } else {
-        setError(data.message || data.detail || "Login failed. Please try again.");
-      }
+      // Replace with actual API call
+      // const response = await fetch('/api/tailor/login', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ email, password }),
+      // });
+      // const data = await response.json();
+      
+      setTimeout(() => {
+        localStorage.setItem('tailor_token', 'dummy_tailor_token');
+        localStorage.setItem('tailor_user', JSON.stringify({ email, role: 'tailor' }));
+        navigate('/tailor/dashboard');
+        setLoading(false);
+      }, 1000);
     } catch (err) {
-      if (err.message === "Failed to fetch") {
-        setError("Network error. Please check your connection.");
-      } else {
-        setError("Something went wrong. Please try again.");
-      }
-    } finally {
+      setError('Invalid credentials. Please try again.');
       setLoading(false);
     }
+  };
+
+  const handleBack = () => {
+    navigate('/');
+  };
+
+  const handleCustomerLogin = () => {
+    navigate('/login');
   };
 
   return (
@@ -82,27 +66,33 @@ const Login = () => {
       {/* Main Content */}
       <main style={styles.main}>
         {/* Back Button */}
-        <button onClick={() => navigate("/")} style={styles.backButton}>
+        <button onClick={handleBack} style={styles.backButton}>
           <ArrowLeft size={18} /> Back
         </button>
 
         {/* Logo */}
         <div style={styles.logoSection}>
           <div style={styles.logoIcon}>
-            <Shield size={24} color="#FFFFFF" />
+            <Briefcase size={24} color="#FFFFFF" />
           </div>
-          <Link to="/" style={styles.logo}>
+          <span style={styles.logo}>
             Squally<span style={styles.logoAccent}>line</span>
-          </Link>
+          </span>
         </div>
 
         {/* Header Content */}
         <div style={styles.cardHeader}>
-          <span style={styles.eyebrow}>Welcome back</span>
-          <h1 style={styles.title}>Customer Login</h1>
+          <span style={styles.eyebrow}>Tailor Portal</span>
+          <h1 style={styles.title}>Tailor Sign In</h1>
           <p style={styles.subtitle}>
-            Access your measurements, bookings and orders.
+            Sign in to manage appointments, orders and your portfolio.
           </p>
+        </div>
+
+        {/* Tailor Badge */}
+        <div style={styles.tailorBadge}>
+          <Shield size={14} color="#1A6FD4" />
+          <span>Tailor Access</span>
         </div>
 
         {/* Error Banner */}
@@ -116,17 +106,16 @@ const Login = () => {
         {/* Login Form */}
         <form onSubmit={handleLogin} style={styles.form}>
           <div style={styles.formGroup}>
-            <label style={styles.label}>Username or Email</label>
+            <label style={styles.label}>Business Email</label>
             <div style={styles.inputWrapper}>
-              <User size={18} color="#8E8EA0" style={styles.inputIcon} />
+              <Mail size={18} color="#8E8EA0" style={styles.inputIcon} />
               <input
-                type="text"
-                name="username"
-                value={loginData.username}
-                onChange={handleLoginChange}
-                placeholder="Enter your username or email"
-                required
+                type="email"
+                placeholder="tailor@business.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 style={styles.input}
+                required
               />
             </div>
           </div>
@@ -136,20 +125,23 @@ const Login = () => {
             <div style={styles.inputWrapper}>
               <Lock size={18} color="#8E8EA0" style={styles.inputIcon} />
               <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                value={loginData.password}
-                onChange={handleLoginChange}
-                placeholder="Enter your password"
-                required
+                type={showPassword ? 'text' : 'password'}
+                placeholder="••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 style={styles.input}
+                required
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 style={styles.eyeButton}
               >
-                {showPassword ? <EyeOff size={18} color="#8E8EA0" /> : <Eye size={18} color="#8E8EA0" />}
+                {showPassword ? (
+                  <EyeOff size={18} color="#8E8EA0" />
+                ) : (
+                  <Eye size={18} color="#8E8EA0" />
+                )}
               </button>
             </div>
           </div>
@@ -165,50 +157,33 @@ const Login = () => {
             disabled={loading}
             style={{
               ...styles.primaryButton,
-              ...(loading && styles.buttonDisabled)
+              ...(loading ? styles.buttonDisabled : {}),
             }}
           >
             {loading ? (
               <>
                 <span style={styles.spinner} />
-                Logging in...
+                Signing in...
               </>
             ) : (
               <>
-                <LogIn size={18} /> Log in as customer
+                <LogIn size={18} /> Enter Tailor Dashboard
               </>
             )}
           </button>
 
           <div style={styles.divider}>
-            <span style={styles.dividerText}>or continue with</span>
+            <span style={styles.dividerText}>or</span>
           </div>
 
-          <button type="button" style={styles.googleButton}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-            </svg>
-            Continue with Google
-          </button>
-
           <p style={styles.footerText}>
-            Don't have an account?{" "}
-            <Link to="/register" style={styles.linkButton}>
-              Register here
-            </Link>
-          </p>
-
-          <p style={styles.tailorText}>
-            Are you a tailor?{" "}
+            Looking for your customer account?{' '}
             <button
               type="button"
-              onClick={() => navigate("/tailor/login")}
-              style={styles.tailorLink}
+              onClick={handleCustomerLogin}
+              style={styles.linkButton}
             >
-              Open the Tailor Portal →
+              Customer login
             </button>
           </p>
         </form>
@@ -216,8 +191,8 @@ const Login = () => {
 
       {/* Footer */}
       <p style={styles.footer}>
-        By continuing, you agree to our{" "}
-        <a href="#" style={styles.footerLink}>Terms</a> &amp;{" "}
+        By continuing, you agree to our{' '}
+        <a href="#" style={styles.footerLink}>Terms</a> &amp;{' '}
         <a href="#" style={styles.footerLink}>Privacy Policy</a>
       </p>
     </div>
@@ -252,7 +227,7 @@ const styles = {
     width: '400px',
     height: '400px',
     borderRadius: '50%',
-    background: 'radial-gradient(circle, rgba(26,111,212,0.04) 0%, transparent 70%)',
+    background: 'radial-gradient(circle, rgba(26,111,212,0.06) 0%, transparent 70%)',
   },
   gradientOrb2: {
     position: 'absolute',
@@ -303,13 +278,12 @@ const styles = {
     fontWeight: '700',
     fontFamily: 'Fraunces, serif',
     color: '#0A0F1E',
-    textDecoration: 'none',
   },
   logoAccent: {
     color: '#1A6FD4',
   },
   cardHeader: {
-    marginBottom: '28px',
+    marginBottom: '16px',
   },
   eyebrow: {
     fontSize: '11px',
@@ -335,6 +309,18 @@ const styles = {
     color: '#5C7A9A',
     margin: 0,
     lineHeight: 1.5,
+  },
+  tailorBadge: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '8px',
+    padding: '6px 16px',
+    backgroundColor: '#E8F4FB',
+    borderRadius: '50px',
+    fontSize: '12px',
+    color: '#1A6FD4',
+    fontWeight: '600',
+    marginBottom: '20px',
   },
   errorBanner: {
     backgroundColor: '#FEE2E2',
@@ -455,42 +441,13 @@ const styles = {
     zIndex: 1,
     backgroundColor: 'transparent',
   },
-  googleButton: {
-    width: '100%',
-    padding: '13px',
-    borderRadius: '10px',
-    backgroundColor: '#FFFFFF',
-    color: '#0A0F1E',
-    fontSize: '15px',
-    fontWeight: '500',
-    fontFamily: 'Inter, sans-serif',
-    border: '1.5px solid #DCE4EE',
-    cursor: 'pointer',
-    transition: 'all 0.2s',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '10px',
-  },
   footerText: {
     textAlign: 'center',
     fontSize: '14px',
     color: '#5C7A9A',
-    margin: '4px 0 0',
+    margin: 0,
   },
   linkButton: {
-    color: '#1A6FD4',
-    fontWeight: '600',
-    textDecoration: 'none',
-    transition: 'color 0.2s',
-  },
-  tailorText: {
-    textAlign: 'center',
-    fontSize: '14px',
-    color: '#5C7A9A',
-    margin: '8px 0 0',
-  },
-  tailorLink: {
     background: 'none',
     border: 'none',
     color: '#1A6FD4',
@@ -498,6 +455,7 @@ const styles = {
     cursor: 'pointer',
     fontFamily: 'Inter, sans-serif',
     fontSize: '14px',
+    padding: 0,
     transition: 'color 0.2s',
   },
   footer: {
@@ -521,88 +479,71 @@ styleSheet.textContent = `
     100% { transform: rotate(360deg); }
   }
 
-  .login-back-button:hover {
+  .tailor-back-button:hover {
     color: #1A6FD4;
   }
 
-  .login-forgot-link:hover {
+  .tailor-forgot-link:hover {
     color: #1A6FD4;
   }
 
-  .login-input-wrapper:focus-within {
+  .tailor-input-wrapper:focus-within {
     border-color: #1A6FD4;
     box-shadow: 0 0 0 3px rgba(26,111,212,0.1);
   }
 
-  .login-primary-button:hover:not(:disabled) {
+  .tailor-primary-button:hover:not(:disabled) {
     background-color: #1557A8;
     transform: translateY(-2px);
     box-shadow: 0 6px 24px rgba(26,111,212,0.3);
   }
 
-  .login-google-button:hover {
-    background-color: #F8F9FA;
-    border-color: #1A6FD4;
-  }
-
-  .login-link-button:hover {
+  .tailor-link-button:hover {
     color: #1557A8;
     text-decoration: underline;
   }
 
-  .login-tailor-link:hover {
-    color: #1557A8;
-    text-decoration: underline;
-  }
-
-  .login-footer-link:hover {
+  .tailor-footer-link:hover {
     color: #1557A8;
     text-decoration: underline;
   }
 
   @media (max-width: 480px) {
-    .login-title {
+    .tailor-title {
       font-size: 24px !important;
     }
-    .login-logo {
+    .tailor-logo {
       font-size: 24px !important;
     }
-    .login-logo-icon {
+    .tailor-logo-icon {
       width: 36px !important;
       height: 36px !important;
     }
-    .login-logo-icon svg {
+    .tailor-logo-icon svg {
       width: 20px !important;
       height: 20px !important;
     }
-    .login-primary-button {
+    .tailor-primary-button {
       font-size: 15px !important;
       padding: 13px !important;
     }
-    .login-google-button {
-      font-size: 14px !important;
-      padding: 12px !important;
-    }
-    .login-subtitle {
+    .tailor-subtitle {
       font-size: 13px !important;
     }
-    .login-back-button {
+    .tailor-back-button {
       font-size: 13px !important;
     }
   }
 
   @media (max-width: 360px) {
-    .login-title {
+    .tailor-title {
       font-size: 22px !important;
     }
-    .login-logo {
+    .tailor-logo {
       font-size: 22px !important;
-    }
-    .login-google-button {
-      font-size: 13px !important;
     }
   }
 `;
 document.head.appendChild(styleSheet);
 
-export default Login;
+export default TailorLogin;

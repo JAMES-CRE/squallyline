@@ -1,42 +1,153 @@
-import React, { useState } from 'react';
-import { Home, FileText, User } from 'lucide-react';
+// components/BottomNav.jsx
+import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import {
+  Home,
+  Ruler,
+  Grid3x3,
+  Package,
+  User,
+  Calendar, // ← Add this import
+} from 'lucide-react';
 
 const BottomNav = () => {
-  const [activeTab, setActiveTab] = useState('home');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navItems = [
-    { id: 'home', icon: Home, label: 'Home' },
-    { id: 'documents', icon: FileText, label: 'Documents' },
-    { id: 'profile', icon: User, label: 'Profile' },
+    {
+      id: 'home',
+      icon: Home,
+      label: 'Home',
+      path: '/home',
+      activePaths: ['/home']
+    },
+    {
+      id: 'measure',
+      icon: Ruler,
+      label: 'Measure',
+      path: '/measurements',
+      activePaths: ['/measurements']
+    },
+    {
+      id: 'portfolio',
+      icon: Grid3x3,
+      label: 'Portfolio',
+      path: '/portfolio',
+      activePaths: ['/portfolio', '/designs']
+    },
+    {
+      id: 'bookings', // ← Changed from 'orders' to 'bookings'
+      icon: Calendar,
+      label: 'Book',
+      path: '/bookings',
+      activePaths: ['/bookings']
+    },
+    {
+      id: 'profile',
+      icon: User,
+      label: 'Profile',
+      path: '/profile',
+      activePaths: ['/profile']
+    },
   ];
 
-  return (
-    <div className="w-full max-w-md mx-auto p-4">
-      {/* Navigation Container */}
-      <nav className="bg-[#1C1C1E] text-white rounded-3xl py-4 px-6 flex justify-around items-center shadow-lg">
-        {navItems.map((item) => {
-          const Icon = item.icon;
-          const isActive = activeTab === item.id;
+  const isActive = (item) => {
+    return item.activePaths.some(path => location.pathname.startsWith(path));
+  };
 
-          return (
-            <button
-              key={item.id}
-              onClick={() => setActiveTab(item.id)}
-              className="relative p-2 focus:outline-none transition-colors duration-200"
-              aria-label={item.label}
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
+
+  return (
+    <nav style={styles.bottomNav}>
+      {navItems.map((item) => {
+        const Icon = item.icon;
+        const active = isActive(item);
+
+        return (
+          <button
+            key={item.id}
+            onClick={() => handleNavigation(item.path)}
+            style={styles.navButton}
+            aria-label={item.label}
+          >
+            <span
+              style={{
+                ...styles.navIconWrap,
+                ...(active ? styles.navIconWrapActive : {}),
+              }}
             >
               <Icon
                 size={22}
-                className={`transition-colors duration-200 ${
-                  isActive ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'
-                }`}
+                color={active ? '#FFFFFF' : '#8E8EA0'}
               />
-            </button>
-          );
-        })}
-      </nav>
-    </div>
+            </span>
+            <span style={{
+              ...styles.navLabel,
+              ...(active ? styles.navLabelActive : {}),
+            }}>
+              {item.label}
+            </span>
+          </button>
+        );
+      })}
+    </nav>
   );
+};
+
+const styles = {
+  bottomNav: {
+    position: 'fixed',
+    bottom: '20px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    width: 'calc(100% - 32px)',
+    maxWidth: '400px',
+    backgroundColor: '#0A0F1E',
+    borderRadius: '50px',
+    border: '1px solid rgba(255,255,255,0.08)',
+    boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    padding: '8px 4px',
+    zIndex: 100,
+  },
+  navButton: {
+    border: 'none',
+    background: 'none',
+    cursor: 'pointer',
+    padding: '4px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '2px',
+    flex: 1,
+  },
+  navIconWrap: {
+    width: '44px',
+    height: '44px',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    transition: 'all 0.2s',
+  },
+  navIconWrapActive: {
+    backgroundColor: '#1A6FD4',
+  },
+  navLabel: {
+    fontSize: '10px',
+    color: '#8E8EA0',
+    fontWeight: '500',
+    transition: 'color 0.2s',
+  },
+  navLabelActive: {
+    color: '#FFFFFF',
+    fontWeight: '600',
+  },
 };
 
 export default BottomNav;

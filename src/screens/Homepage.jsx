@@ -1,618 +1,618 @@
-// pages/Home.jsx
-import React from 'react';
-import {
-  Ruler,
-  Grid3x3,
-  Calendar,
-  Package,
-  User,
-  Heart,
-  Clock,
-  ChevronRight,
-  Shield,
-  RefreshCw,
-  Award,
-  Sparkles,
-  Phone,
-  Mail,
-  MapPin,
-  Menu,
-  // Instagram,
-  // Facebook,
-  // Twitter
-} from 'lucide-react';
+// // pages/Home.jsx
+// import React from 'react';
+// import {
+//   Ruler,
+//   Grid3x3,
+//   Calendar,
+//   Package,
+//   User,
+//   Heart,
+//   Clock,
+//   ChevronRight,
+//   Shield,
+//   RefreshCw,
+//   Award,
+//   Sparkles,
+//   Phone,
+//   Mail,
+//   MapPin,
+//   Menu,
+//   // Instagram,
+//   // Facebook,
+//   // Twitter
+// } from 'lucide-react';
 
-// Import components
-import CardGrid from '../components/CardGrid';
-import Hero from '../components/Hero';
-import ProductCard from '../components/ProductCard';
+// // Import components
+// import CardGrid from '../components/CardGrid';
+// import Hero from '../components/Hero';
+// import ProductCard from '../components/ProductCard';
 
-const Home = () => {
-  const featuredDesigns = [
-    { id: 1, name: 'Kaba & Slit', price: 'GHS 450', category: 'Women Wear', bg: '#EADFC2', icon: '👗' },
-    { id: 2, name: 'Agbada Set', price: 'GHS 600', category: 'Men Wear', bg: '#DCE4EE', icon: '👔' },
-    { id: 3, name: 'Fitted Wedding Gown', price: 'GHS 1,200', category: 'Wedding', bg: '#F2E4E4', icon: '💍' },
-    { id: 4, name: 'Ankara Two-Piece', price: 'GHS 380', category: 'Women Wear', bg: '#F4E0C8', icon: '🧵' },
-  ];
+// const Home = () => {
+//   const featuredDesigns = [
+//     { id: 1, name: 'Kaba & Slit', price: 'GHS 450', category: 'Women Wear', bg: '#EADFC2', icon: '👗' },
+//     { id: 2, name: 'Agbada Set', price: 'GHS 600', category: 'Men Wear', bg: '#DCE4EE', icon: '👔' },
+//     { id: 3, name: 'Fitted Wedding Gown', price: 'GHS 1,200', category: 'Wedding', bg: '#F2E4E4', icon: '💍' },
+//     { id: 4, name: 'Ankara Two-Piece', price: 'GHS 380', category: 'Women Wear', bg: '#F4E0C8', icon: '🧵' },
+//   ];
 
-  const quickActions = [
-    { icon: Ruler, label: 'Measure', color: '#1A6FD4' },
-    { icon: Grid3x3, label: 'Browse', color: '#8BBAD4' },
-    { icon: Calendar, label: 'Book', color: '#F59E0B' },
-    { icon: Package, label: 'Track', color: '#22C55E' },
-  ];
+//   const quickActions = [
+//     { icon: Ruler, label: 'Measure', color: '#1A6FD4' },
+//     { icon: Grid3x3, label: 'Browse', color: '#8BBAD4' },
+//     { icon: Calendar, label: 'Book', color: '#F59E0B' },
+//     { icon: Package, label: 'Track', color: '#22C55E' },
+//   ];
 
-  return (
-    <div style={{
-      minHeight: '100vh',
-      backgroundColor: '#F5F7FA',
-      paddingBottom: '80px'
-    }}>
-      {/* Header */}
-      <header style={{
-        backgroundColor: '#FFFFFF',
-        borderBottom: '1px solid #DCE4EE',
-        position: 'sticky',
-        top: 0,
-        zIndex: 50,
-        padding: '0 16px'
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          height: '64px'
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <span style={{
-              fontSize: '20px',
-              fontWeight: 'bold',
-              color: '#0A0F1E'
-            }}>
-              Tailor<span style={{ color: '#1A6FD4' }}>Connect</span>
-            </span>
-            <span style={{
-              marginLeft: '12px',
-              fontSize: '12px',
-              color: '#5C7A9A',
-              display: 'none'
-            }} className="tagline">
-              Measured once. Fitted always.
-            </span>
-          </div>
+//   return (
+//     <div style={{
+//       minHeight: '100vh',
+//       backgroundColor: '#F5F7FA',
+//       paddingBottom: '80px'
+//     }}>
+//       {/* Header */}
+//       <header style={{
+//         backgroundColor: '#FFFFFF',
+//         borderBottom: '1px solid #DCE4EE',
+//         position: 'sticky',
+//         top: 0,
+//         zIndex: 50,
+//         padding: '0 16px'
+//       }}>
+//         <div style={{
+//           maxWidth: '1200px',
+//           margin: '0 auto',
+//           display: 'flex',
+//           justifyContent: 'space-between',
+//           alignItems: 'center',
+//           height: '64px'
+//         }}>
+//           <div style={{ display: 'flex', alignItems: 'center' }}>
+//             <span style={{
+//               fontSize: '20px',
+//               fontWeight: 'bold',
+//               color: '#0A0F1E'
+//             }}>
+//               Tailor<span style={{ color: '#1A6FD4' }}>Connect</span>
+//             </span>
+//             <span style={{
+//               marginLeft: '12px',
+//               fontSize: '12px',
+//               color: '#5C7A9A',
+//               display: 'none'
+//             }} className="tagline">
+//               Measured once. Fitted always.
+//             </span>
+//           </div>
 
-          <nav style={{
-            display: 'none',
-            alignItems: 'center',
-            gap: '24px'
-          }} className="desktop-nav">
-            <a href="#" style={{ color: '#1A6FD4', fontWeight: '500', fontSize: '14px' }}>Home</a>
-            <a href="#" style={{ color: '#5C7A9A', fontSize: '14px', textDecoration: 'none' }}>Measure</a>
-            <a href="#" style={{ color: '#5C7A9A', fontSize: '14px', textDecoration: 'none' }}>Portfolio</a>
-            <a href="#" style={{ color: '#5C7A9A', fontSize: '14px', textDecoration: 'none' }}>Orders</a>
-            <a href="#" style={{ color: '#5C7A9A', fontSize: '14px', textDecoration: 'none' }}>Profile</a>
-          </nav>
+//           <nav style={{
+//             display: 'none',
+//             alignItems: 'center',
+//             gap: '24px'
+//           }} className="desktop-nav">
+//             <a href="#" style={{ color: '#1A6FD4', fontWeight: '500', fontSize: '14px' }}>Home</a>
+//             <a href="#" style={{ color: '#5C7A9A', fontSize: '14px', textDecoration: 'none' }}>Measure</a>
+//             <a href="#" style={{ color: '#5C7A9A', fontSize: '14px', textDecoration: 'none' }}>Portfolio</a>
+//             <a href="#" style={{ color: '#5C7A9A', fontSize: '14px', textDecoration: 'none' }}>Orders</a>
+//             <a href="#" style={{ color: '#5C7A9A', fontSize: '14px', textDecoration: 'none' }}>Profile</a>
+//           </nav>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <button style={{
-              padding: '8px',
-              borderRadius: '50%',
-              border: 'none',
-              background: 'transparent',
-              cursor: 'pointer'
-            }}>
-              <User size={20} color="#2A3755" />
-            </button>
-            <button style={{
-              padding: '8px',
-              borderRadius: '50%',
-              border: 'none',
-              background: 'transparent',
-              cursor: 'pointer',
-              display: 'none'
-            }} className="mobile-menu">
-              <Menu size={20} color="#2A3755" />
-            </button>
-          </div>
-        </div>
-      </header>
+//           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+//             <button style={{
+//               padding: '8px',
+//               borderRadius: '50%',
+//               border: 'none',
+//               background: 'transparent',
+//               cursor: 'pointer'
+//             }}>
+//               <User size={20} color="#2A3755" />
+//             </button>
+//             <button style={{
+//               padding: '8px',
+//               borderRadius: '50%',
+//               border: 'none',
+//               background: 'transparent',
+//               cursor: 'pointer',
+//               display: 'none'
+//             }} className="mobile-menu">
+//               <Menu size={20} color="#2A3755" />
+//             </button>
+//           </div>
+//         </div>
+//       </header>
 
-      {/* Main Content */}
-      <main style={{
-        maxWidth: '1200px',
-        margin: '0 auto',
-        padding: '24px 16px'
-      }}>
-        {/* Welcome Section */}
-        <div style={{ marginBottom: '24px' }}>
-          <h1 style={{
-            fontSize: '24px',
-            fontWeight: 'bold',
-            color: '#0A0F1E',
-            margin: 0
-          }}>
-            Akwaaba, Akosua 👋
-          </h1>
-          <p style={{
-            color: '#5C7A9A',
-            fontSize: '14px',
-            marginTop: '4px'
-          }}>
-            Your perfect fit starts with one accurate digital profile.
-          </p>
-        </div>
+//       {/* Main Content */}
+//       <main style={{
+//         maxWidth: '1200px',
+//         margin: '0 auto',
+//         padding: '24px 16px'
+//       }}>
+//         {/* Welcome Section */}
+//         <div style={{ marginBottom: '24px' }}>
+//           <h1 style={{
+//             fontSize: '24px',
+//             fontWeight: 'bold',
+//             color: '#0A0F1E',
+//             margin: 0
+//           }}>
+//             Akwaaba, Akosua 👋
+//           </h1>
+//           <p style={{
+//             color: '#5C7A9A',
+//             fontSize: '14px',
+//             marginTop: '4px'
+//           }}>
+//             Your perfect fit starts with one accurate digital profile.
+//           </p>
+//         </div>
 
-        {/* Measurement Hero Card */}
-        <div style={{
-          backgroundColor: '#FFFFFF',
-          borderRadius: '16px',
-          padding: '20px',
-          boxShadow: '0 1px 3px rgba(0,0,0,0.06)',
-          border: '1px solid #DCE4EE',
-          marginBottom: '24px',
-          cursor: 'pointer',
-          transition: 'box-shadow 0.2s'
-        }}
-        onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)'}
-        onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.06)'}>
-          <div style={{
-            display: 'flex',
-            alignItems: 'flex-start',
-            justifyContent: 'space-between'
-          }}>
-            <div style={{ flex: 1 }}>
-              <div style={{
-                fontSize: '11px',
-                fontWeight: '600',
-                color: '#1A6FD4',
-                textTransform: 'uppercase',
-                letterSpacing: '0.5px'
-              }}>
-                TailorConnect's Key Feature
-              </div>
-              <h3 style={{
-                fontSize: '18px',
-                fontWeight: 'bold',
-                color: '#0A0F1E',
-                marginTop: '4px',
-                marginBottom: '4px'
-              }}>
-                Measure once. Fit always.
-              </h3>
-              <p style={{
-                fontSize: '14px',
-                color: '#5C7A9A',
-                marginTop: '4px',
-                maxWidth: '400px'
-              }}>
-                Create one guided measurement profile and stop repeating the same fitting process for every order.
-              </p>
-            </div>
-            <div style={{
-              backgroundColor: '#E8F4FB',
-              padding: '12px',
-              borderRadius: '12px',
-              flexShrink: 0,
-              marginLeft: '12px'
-            }}>
-              <Ruler size={32} color="#1A6FD4" />
-            </div>
-          </div>
-          
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginTop: '16px',
-            paddingTop: '16px',
-            borderTop: '1px solid #DCE4EE'
-          }}>
-            <span style={{
-              fontSize: '11px',
-              fontWeight: '700',
-              color: '#5C7A9A'
-            }}>0/8 COMPLETED</span>
-            <span style={{
-              fontSize: '14px',
-              fontWeight: '600',
-              color: '#1A6FD4',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px'
-            }}>
-              Start measuring <ChevronRight size={16} />
-            </span>
-          </div>
-        </div>
+//         {/* Measurement Hero Card */}
+//         <div style={{
+//           backgroundColor: '#FFFFFF',
+//           borderRadius: '16px',
+//           padding: '20px',
+//           boxShadow: '0 1px 3px rgba(0,0,0,0.06)',
+//           border: '1px solid #DCE4EE',
+//           marginBottom: '24px',
+//           cursor: 'pointer',
+//           transition: 'box-shadow 0.2s'
+//         }}
+//         onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)'}
+//         onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.06)'}>
+//           <div style={{
+//             display: 'flex',
+//             alignItems: 'flex-start',
+//             justifyContent: 'space-between'
+//           }}>
+//             <div style={{ flex: 1 }}>
+//               <div style={{
+//                 fontSize: '11px',
+//                 fontWeight: '600',
+//                 color: '#1A6FD4',
+//                 textTransform: 'uppercase',
+//                 letterSpacing: '0.5px'
+//               }}>
+//                 TailorConnect's Key Feature
+//               </div>
+//               <h3 style={{
+//                 fontSize: '18px',
+//                 fontWeight: 'bold',
+//                 color: '#0A0F1E',
+//                 marginTop: '4px',
+//                 marginBottom: '4px'
+//               }}>
+//                 Measure once. Fit always.
+//               </h3>
+//               <p style={{
+//                 fontSize: '14px',
+//                 color: '#5C7A9A',
+//                 marginTop: '4px',
+//                 maxWidth: '400px'
+//               }}>
+//                 Create one guided measurement profile and stop repeating the same fitting process for every order.
+//               </p>
+//             </div>
+//             <div style={{
+//               backgroundColor: '#E8F4FB',
+//               padding: '12px',
+//               borderRadius: '12px',
+//               flexShrink: 0,
+//               marginLeft: '12px'
+//             }}>
+//               <Ruler size={32} color="#1A6FD4" />
+//             </div>
+//           </div>
 
-        {/* Benefits Row */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '12px',
-          marginBottom: '24px'
-        }} className="benefits-grid">
-          <div style={{
-            backgroundColor: '#FFFFFF',
-            borderRadius: '12px',
-            padding: '12px',
-            textAlign: 'center',
-            border: '1px solid #DCE4EE'
-          }}>
-            <RefreshCw size={20} color="#1A6FD4" style={{ margin: '0 auto 4px' }} />
-            <span style={{ fontSize: '12px', fontWeight: '500', color: '#2A3755' }}>Reuse every order</span>
-          </div>
-          <div style={{
-            backgroundColor: '#FFFFFF',
-            borderRadius: '12px',
-            padding: '12px',
-            textAlign: 'center',
-            border: '1px solid #DCE4EE'
-          }}>
-            <Shield size={20} color="#1A6FD4" style={{ margin: '0 auto 4px' }} />
-            <span style={{ fontSize: '12px', fontWeight: '500', color: '#2A3755' }}>Shared securely</span>
-          </div>
-          <div style={{
-            backgroundColor: '#FFFFFF',
-            borderRadius: '12px',
-            padding: '12px',
-            textAlign: 'center',
-            border: '1px solid #DCE4EE'
-          }}>
-            <Award size={20} color="#1A6FD4" style={{ margin: '0 auto 4px' }} />
-            <span style={{ fontSize: '12px', fontWeight: '500', color: '#2A3755' }}>Fewer alterations</span>
-          </div>
-          <div style={{
-            backgroundColor: '#FFFFFF',
-            borderRadius: '12px',
-            padding: '12px',
-            textAlign: 'center',
-            border: '1px solid #DCE4EE'
-          }}>
-            <Sparkles size={20} color="#1A6FD4" style={{ margin: '0 auto 4px' }} />
-            <span style={{ fontSize: '12px', fontWeight: '500', color: '#2A3755' }}>Guided accuracy</span>
-          </div>
-        </div>
+//           <div style={{
+//             display: 'flex',
+//             alignItems: 'center',
+//             justifyContent: 'space-between',
+//             marginTop: '16px',
+//             paddingTop: '16px',
+//             borderTop: '1px solid #DCE4EE'
+//           }}>
+//             <span style={{
+//               fontSize: '11px',
+//               fontWeight: '700',
+//               color: '#5C7A9A'
+//             }}>0/8 COMPLETED</span>
+//             <span style={{
+//               fontSize: '14px',
+//               fontWeight: '600',
+//               color: '#1A6FD4',
+//               display: 'flex',
+//               alignItems: 'center',
+//               gap: '4px'
+//             }}>
+//               Start measuring <ChevronRight size={16} />
+//             </span>
+//           </div>
+//         </div>
 
-        {/* Quick Actions */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '12px',
-          marginBottom: '24px'
-        }}>
-          {quickActions.map((action, index) => (
-            <button
-              key={index}
-              style={{
-                backgroundColor: '#FFFFFF',
-                borderRadius: '12px',
-                padding: '16px',
-                textAlign: 'center',
-                border: '1px solid #DCE4EE',
-                cursor: 'pointer',
-                transition: 'box-shadow 0.2s',
-                background: 'none'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.06)'}
-              onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'none'}
-            >
-              <action.icon size={24} style={{ margin: '0 auto 4px', color: action.color }} />
-              <div style={{ fontSize: '12px', fontWeight: '500', color: '#2A3755' }}>{action.label}</div>
-            </button>
-          ))}
-        </div>
+//         {/* Benefits Row */}
+//         <div style={{
+//           display: 'grid',
+//           gridTemplateColumns: 'repeat(2, 1fr)',
+//           gap: '12px',
+//           marginBottom: '24px'
+//         }} className="benefits-grid">
+//           <div style={{
+//             backgroundColor: '#FFFFFF',
+//             borderRadius: '12px',
+//             padding: '12px',
+//             textAlign: 'center',
+//             border: '1px solid #DCE4EE'
+//           }}>
+//             <RefreshCw size={20} color="#1A6FD4" style={{ margin: '0 auto 4px' }} />
+//             <span style={{ fontSize: '12px', fontWeight: '500', color: '#2A3755' }}>Reuse every order</span>
+//           </div>
+//           <div style={{
+//             backgroundColor: '#FFFFFF',
+//             borderRadius: '12px',
+//             padding: '12px',
+//             textAlign: 'center',
+//             border: '1px solid #DCE4EE'
+//           }}>
+//             <Shield size={20} color="#1A6FD4" style={{ margin: '0 auto 4px' }} />
+//             <span style={{ fontSize: '12px', fontWeight: '500', color: '#2A3755' }}>Shared securely</span>
+//           </div>
+//           <div style={{
+//             backgroundColor: '#FFFFFF',
+//             borderRadius: '12px',
+//             padding: '12px',
+//             textAlign: 'center',
+//             border: '1px solid #DCE4EE'
+//           }}>
+//             <Award size={20} color="#1A6FD4" style={{ margin: '0 auto 4px' }} />
+//             <span style={{ fontSize: '12px', fontWeight: '500', color: '#2A3755' }}>Fewer alterations</span>
+//           </div>
+//           <div style={{
+//             backgroundColor: '#FFFFFF',
+//             borderRadius: '12px',
+//             padding: '12px',
+//             textAlign: 'center',
+//             border: '1px solid #DCE4EE'
+//           }}>
+//             <Sparkles size={20} color="#1A6FD4" style={{ margin: '0 auto 4px' }} />
+//             <span style={{ fontSize: '12px', fontWeight: '500', color: '#2A3755' }}>Guided accuracy</span>
+//           </div>
+//         </div>
 
-        {/* Hero Section */}
-        <Hero />
+//         {/* Quick Actions */}
+//         <div style={{
+//           display: 'grid',
+//           gridTemplateColumns: 'repeat(4, 1fr)',
+//           gap: '12px',
+//           marginBottom: '24px'
+//         }}>
+//           {quickActions.map((action, index) => (
+//             <button
+//               key={index}
+//               style={{
+//                 backgroundColor: '#FFFFFF',
+//                 borderRadius: '12px',
+//                 padding: '16px',
+//                 textAlign: 'center',
+//                 border: '1px solid #DCE4EE',
+//                 cursor: 'pointer',
+//                 transition: 'box-shadow 0.2s',
+//                 background: 'none'
+//               }}
+//               onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.06)'}
+//               onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'none'}
+//             >
+//               <action.icon size={24} style={{ margin: '0 auto 4px', color: action.color }} />
+//               <div style={{ fontSize: '12px', fontWeight: '500', color: '#2A3755' }}>{action.label}</div>
+//             </button>
+//           ))}
+//         </div>
 
-        {/* Categories Section - Using CardGrid */}
-        <div style={{ marginBottom: '24px' }}>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginBottom: '16px'
-          }}>
-            <h2 style={{ fontSize: '18px', fontWeight: 'bold', color: '#0A0F1E', margin: 0 }}>Shop by Category</h2>
-            <button style={{
-              fontSize: '14px',
-              fontWeight: '600',
-              color: '#1A6FD4',
-              border: 'none',
-              background: 'none',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px'
-            }}>
-              See all <ChevronRight size={16} />
-            </button>
-          </div>
-          <CardGrid />
-        </div>
+//         {/* Hero Section */}
+//         <Hero />
 
-        {/* Upcoming Appointment */}
-        <div style={{ marginBottom: '24px' }}>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginBottom: '12px'
-          }}>
-            <h2 style={{
-              fontSize: '12px',
-              fontWeight: '600',
-              color: '#5C7A9A',
-              textTransform: 'uppercase',
-              letterSpacing: '0.5px',
-              margin: 0
-            }}>
-              Upcoming Appointment
-            </h2>
-          </div>
-          <div style={{
-            backgroundColor: '#FFFFFF',
-            borderRadius: '12px',
-            padding: '16px',
-            border: '1px solid #DCE4EE',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between'
-          }}>
-            <div>
-              <div style={{ fontWeight: '600', color: '#0A0F1E' }}>Fitting Session</div>
-              <div style={{
-                fontSize: '14px',
-                color: '#5C7A9A',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                marginTop: '4px'
-              }}>
-                <Clock size={16} />
-                Jul 22 · 10:00 AM
-              </div>
-            </div>
-            <span style={{
-              padding: '4px 12px',
-              backgroundColor: '#FEF3C7',
-              color: '#F59E0B',
-              fontSize: '11px',
-              fontWeight: '600',
-              borderRadius: '999px'
-            }}>
-              Pending
-            </span>
-          </div>
-        </div>
+//         {/* Categories Section - Using CardGrid */}
+//         <div style={{ marginBottom: '24px' }}>
+//           <div style={{
+//             display: 'flex',
+//             alignItems: 'center',
+//             justifyContent: 'space-between',
+//             marginBottom: '16px'
+//           }}>
+//             <h2 style={{ fontSize: '18px', fontWeight: 'bold', color: '#0A0F1E', margin: 0 }}>Shop by Category</h2>
+//             <button style={{
+//               fontSize: '14px',
+//               fontWeight: '600',
+//               color: '#1A6FD4',
+//               border: 'none',
+//               background: 'none',
+//               cursor: 'pointer',
+//               display: 'flex',
+//               alignItems: 'center',
+//               gap: '4px'
+//             }}>
+//               See all <ChevronRight size={16} />
+//             </button>
+//           </div>
+//           <CardGrid />
+//         </div>
 
-        {/* Featured Designs */}
-        <div>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginBottom: '16px'
-          }}>
-            <h2 style={{ fontSize: '18px', fontWeight: 'bold', color: '#0A0F1E', margin: 0 }}>Featured Designs</h2>
-            <button style={{
-              fontSize: '14px',
-              fontWeight: '600',
-              color: '#1A6FD4',
-              border: 'none',
-              background: 'none',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px'
-            }}>
-              See all <ChevronRight size={16} />
-            </button>
-          </div>
+//         {/* Upcoming Appointment */}
+//         <div style={{ marginBottom: '24px' }}>
+//           <div style={{
+//             display: 'flex',
+//             alignItems: 'center',
+//             justifyContent: 'space-between',
+//             marginBottom: '12px'
+//           }}>
+//             <h2 style={{
+//               fontSize: '12px',
+//               fontWeight: '600',
+//               color: '#5C7A9A',
+//               textTransform: 'uppercase',
+//               letterSpacing: '0.5px',
+//               margin: 0
+//             }}>
+//               Upcoming Appointment
+//             </h2>
+//           </div>
+//           <div style={{
+//             backgroundColor: '#FFFFFF',
+//             borderRadius: '12px',
+//             padding: '16px',
+//             border: '1px solid #DCE4EE',
+//             display: 'flex',
+//             alignItems: 'center',
+//             justifyContent: 'space-between'
+//           }}>
+//             <div>
+//               <div style={{ fontWeight: '600', color: '#0A0F1E' }}>Fitting Session</div>
+//               <div style={{
+//                 fontSize: '14px',
+//                 color: '#5C7A9A',
+//                 display: 'flex',
+//                 alignItems: 'center',
+//                 gap: '8px',
+//                 marginTop: '4px'
+//               }}>
+//                 <Clock size={16} />
+//                 Jul 22 · 10:00 AM
+//               </div>
+//             </div>
+//             <span style={{
+//               padding: '4px 12px',
+//               backgroundColor: '#FEF3C7',
+//               color: '#F59E0B',
+//               fontSize: '11px',
+//               fontWeight: '600',
+//               borderRadius: '999px'
+//             }}>
+//               Pending
+//             </span>
+//           </div>
+//         </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: '16px'
-          }} className="designs-grid">
-            {featuredDesigns.map((design) => (
-              <div 
-                key={design.id}
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: '12px',
-                  overflow: 'hidden',
-                  border: '1px solid #DCE4EE',
-                  cursor: 'pointer',
-                  transition: 'box-shadow 0.2s'
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)'}
-                onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'none'}
-              >
-                <div style={{
-                  height: '128px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  position: 'relative',
-                  background: design.bg
-                }}>
-                  <span style={{ fontSize: '32px' }}>{design.icon}</span>
-                  <button 
-                    style={{
-                      position: 'absolute',
-                      top: '8px',
-                      right: '8px',
-                      padding: '6px',
-                      backgroundColor: 'rgba(255,255,255,0.8)',
-                      borderRadius: '50%',
-                      border: 'none',
-                      cursor: 'pointer'
-                    }}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      console.log(`Toggle favorite ${design.id}`);
-                    }}
-                  >
-                    <Heart size={16} color="#5C7A9A" />
-                  </button>
-                </div>
-                <div style={{ padding: '12px' }}>
-                  <div style={{ fontWeight: '600', color: '#0A0F1E', fontSize: '14px' }}>{design.name}</div>
-                  <div style={{ color: '#1A6FD4', fontWeight: 'bold', fontSize: '14px', marginTop: '2px' }}>{design.price}</div>
-                  <div style={{ color: '#5C7A9A', fontSize: '12px', marginTop: '4px' }}>{design.category}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+//         {/* Featured Designs */}
+//         <div>
+//           <div style={{
+//             display: 'flex',
+//             alignItems: 'center',
+//             justifyContent: 'space-between',
+//             marginBottom: '16px'
+//           }}>
+//             <h2 style={{ fontSize: '18px', fontWeight: 'bold', color: '#0A0F1E', margin: 0 }}>Featured Designs</h2>
+//             <button style={{
+//               fontSize: '14px',
+//               fontWeight: '600',
+//               color: '#1A6FD4',
+//               border: 'none',
+//               background: 'none',
+//               cursor: 'pointer',
+//               display: 'flex',
+//               alignItems: 'center',
+//               gap: '4px'
+//             }}>
+//               See all <ChevronRight size={16} />
+//             </button>
+//           </div>
 
-        {/* Product Card Showcase */}
-        <div style={{ marginTop: '32px' }}>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginBottom: '16px'
-          }}>
-            <h2 style={{ fontSize: '18px', fontWeight: 'bold', color: '#0A0F1E', margin: 0 }}>Featured Product</h2>
-          </div>
-          <ProductCard />
-        </div>
+//           <div style={{
+//             display: 'grid',
+//             gridTemplateColumns: 'repeat(2, 1fr)',
+//             gap: '16px'
+//           }} className="designs-grid">
+//             {featuredDesigns.map((design) => (
+//               <div 
+//                 key={design.id}
+//                 style={{
+//                   backgroundColor: '#FFFFFF',
+//                   borderRadius: '12px',
+//                   overflow: 'hidden',
+//                   border: '1px solid #DCE4EE',
+//                   cursor: 'pointer',
+//                   transition: 'box-shadow 0.2s'
+//                 }}
+//                 onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)'}
+//                 onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'none'}
+//               >
+//                 <div style={{
+//                   height: '128px',
+//                   display: 'flex',
+//                   alignItems: 'center',
+//                   justifyContent: 'center',
+//                   position: 'relative',
+//                   background: design.bg
+//                 }}>
+//                   <span style={{ fontSize: '32px' }}>{design.icon}</span>
+//                   <button 
+//                     style={{
+//                       position: 'absolute',
+//                       top: '8px',
+//                       right: '8px',
+//                       padding: '6px',
+//                       backgroundColor: 'rgba(255,255,255,0.8)',
+//                       borderRadius: '50%',
+//                       border: 'none',
+//                       cursor: 'pointer'
+//                     }}
+//                     onClick={(e) => {
+//                       e.stopPropagation();
+//                       console.log(`Toggle favorite ${design.id}`);
+//                     }}
+//                   >
+//                     <Heart size={16} color="#5C7A9A" />
+//                   </button>
+//                 </div>
+//                 <div style={{ padding: '12px' }}>
+//                   <div style={{ fontWeight: '600', color: '#0A0F1E', fontSize: '14px' }}>{design.name}</div>
+//                   <div style={{ color: '#1A6FD4', fontWeight: 'bold', fontSize: '14px', marginTop: '2px' }}>{design.price}</div>
+//                   <div style={{ color: '#5C7A9A', fontSize: '12px', marginTop: '4px' }}>{design.category}</div>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
 
-        {/* Footer */}
-        <footer style={{
-          marginTop: '48px',
-          paddingTop: '32px',
-          borderTop: '1px solid #DCE4EE'
-        }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr',
-            gap: '32px'
-          }} className="footer-grid">
-            <div>
-              <h3 style={{
-                fontWeight: 'bold',
-                color: '#0A0F1E',
-                fontSize: '18px',
-                margin: 0
-              }}>
-                Tailor<span style={{ color: '#1A6FD4' }}>Connect</span>
-              </h3>
-              <p style={{ fontSize: '14px', color: '#5C7A9A', marginTop: '8px' }}>
-                Measured once. Fitted always.
-              </p>
-              <div style={{ display: 'flex', gap: '12px', marginTop: '16px' }}>
-                {/* <Instagram size={20} color="#5C7A9A" style={{ cursor: 'pointer' }} />
-                <Facebook size={20} color="#5C7A9A" style={{ cursor: 'pointer' }} />
-                <Twitter size={20} color="#5C7A9A" style={{ cursor: 'pointer' }} /> */}
-              </div>
-            </div>
-            <div>
-              <h4 style={{ fontWeight: '600', color: '#0A0F1E', fontSize: '14px', margin: 0 }}>Quick Links</h4>
-              <ul style={{
-                listStyle: 'none',
-                padding: 0,
-                marginTop: '8px',
-                fontSize: '14px',
-                color: '#5C7A9A'
-              }}>
-                <li style={{ marginBottom: '6px' }}><a href="#" style={{ color: '#5C7A9A', textDecoration: 'none' }}>About Us</a></li>
-                <li style={{ marginBottom: '6px' }}><a href="#" style={{ color: '#5C7A9A', textDecoration: 'none' }}>How It Works</a></li>
-                <li style={{ marginBottom: '6px' }}><a href="#" style={{ color: '#5C7A9A', textDecoration: 'none' }}>Pricing</a></li>
-                <li style={{ marginBottom: '6px' }}><a href="#" style={{ color: '#5C7A9A', textDecoration: 'none' }}>Contact</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 style={{ fontWeight: '600', color: '#0A0F1E', fontSize: '14px', margin: 0 }}>Contact</h4>
-              <ul style={{
-                listStyle: 'none',
-                padding: 0,
-                marginTop: '8px',
-                fontSize: '14px',
-                color: '#5C7A9A'
-              }}>
-                <li style={{ marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Phone size={16} /> +233 20 123 4567
-                </li>
-                <li style={{ marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Mail size={16} /> info@tailorconnect.com
-                </li>
-                <li style={{ marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <MapPin size={16} /> Accra, Ghana
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div style={{
-            marginTop: '32px',
-            paddingTop: '16px',
-            borderTop: '1px solid #DCE4EE',
-            textAlign: 'center',
-            fontSize: '12px',
-            color: '#5C7A9A'
-          }}>
-            &copy; 2026 TailorConnect. All rights reserved.
-          </div>
-        </footer>
-      </main>
+//         {/* Product Card Showcase */}
+//         <div style={{ marginTop: '32px' }}>
+//           <div style={{
+//             display: 'flex',
+//             alignItems: 'center',
+//             justifyContent: 'space-between',
+//             marginBottom: '16px'
+//           }}>
+//             <h2 style={{ fontSize: '18px', fontWeight: 'bold', color: '#0A0F1E', margin: 0 }}>Featured Product</h2>
+//           </div>
+//           <ProductCard />
+//         </div>
 
-      {/* Responsive Styles */}
-      <style>{`
-        @media (min-width: 640px) {
-          .benefits-grid {
-            grid-template-columns: repeat(4, 1fr) !important;
-          }
-          .designs-grid {
-            grid-template-columns: repeat(4, 1fr) !important;
-          }
-          .footer-grid {
-            grid-template-columns: repeat(3, 1fr) !important;
-          }
-          .tagline {
-            display: inline-block !important;
-          }
-        }
+//         {/* Footer */}
+//         <footer style={{
+//           marginTop: '48px',
+//           paddingTop: '32px',
+//           borderTop: '1px solid #DCE4EE'
+//         }}>
+//           <div style={{
+//             display: 'grid',
+//             gridTemplateColumns: '1fr',
+//             gap: '32px'
+//           }} className="footer-grid">
+//             <div>
+//               <h3 style={{
+//                 fontWeight: 'bold',
+//                 color: '#0A0F1E',
+//                 fontSize: '18px',
+//                 margin: 0
+//               }}>
+//                 Tailor<span style={{ color: '#1A6FD4' }}>Connect</span>
+//               </h3>
+//               <p style={{ fontSize: '14px', color: '#5C7A9A', marginTop: '8px' }}>
+//                 Measured once. Fitted always.
+//               </p>
+//               <div style={{ display: 'flex', gap: '12px', marginTop: '16px' }}>
+//                 {/* <Instagram size={20} color="#5C7A9A" style={{ cursor: 'pointer' }} />
+//                 <Facebook size={20} color="#5C7A9A" style={{ cursor: 'pointer' }} />
+//                 <Twitter size={20} color="#5C7A9A" style={{ cursor: 'pointer' }} /> */}
+//               </div>
+//             </div>
+//             <div>
+//               <h4 style={{ fontWeight: '600', color: '#0A0F1E', fontSize: '14px', margin: 0 }}>Quick Links</h4>
+//               <ul style={{
+//                 listStyle: 'none',
+//                 padding: 0,
+//                 marginTop: '8px',
+//                 fontSize: '14px',
+//                 color: '#5C7A9A'
+//               }}>
+//                 <li style={{ marginBottom: '6px' }}><a href="#" style={{ color: '#5C7A9A', textDecoration: 'none' }}>About Us</a></li>
+//                 <li style={{ marginBottom: '6px' }}><a href="#" style={{ color: '#5C7A9A', textDecoration: 'none' }}>How It Works</a></li>
+//                 <li style={{ marginBottom: '6px' }}><a href="#" style={{ color: '#5C7A9A', textDecoration: 'none' }}>Pricing</a></li>
+//                 <li style={{ marginBottom: '6px' }}><a href="#" style={{ color: '#5C7A9A', textDecoration: 'none' }}>Contact</a></li>
+//               </ul>
+//             </div>
+//             <div>
+//               <h4 style={{ fontWeight: '600', color: '#0A0F1E', fontSize: '14px', margin: 0 }}>Contact</h4>
+//               <ul style={{
+//                 listStyle: 'none',
+//                 padding: 0,
+//                 marginTop: '8px',
+//                 fontSize: '14px',
+//                 color: '#5C7A9A'
+//               }}>
+//                 <li style={{ marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+//                   <Phone size={16} /> +233 20 123 4567
+//                 </li>
+//                 <li style={{ marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+//                   <Mail size={16} /> info@tailorconnect.com
+//                 </li>
+//                 <li style={{ marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+//                   <MapPin size={16} /> Accra, Ghana
+//                 </li>
+//               </ul>
+//             </div>
+//           </div>
+//           <div style={{
+//             marginTop: '32px',
+//             paddingTop: '16px',
+//             borderTop: '1px solid #DCE4EE',
+//             textAlign: 'center',
+//             fontSize: '12px',
+//             color: '#5C7A9A'
+//           }}>
+//             &copy; 2026 TailorConnect. All rights reserved.
+//           </div>
+//         </footer>
+//       </main>
 
-        @media (min-width: 768px) {
-          .desktop-nav {
-            display: flex !important;
-          }
-          .mobile-menu {
-            display: none !important;
-          }
-        }
+//       {/* Responsive Styles */}
+//       <style>{`
+//         @media (min-width: 640px) {
+//           .benefits-grid {
+//             grid-template-columns: repeat(4, 1fr) !important;
+//           }
+//           .designs-grid {
+//             grid-template-columns: repeat(4, 1fr) !important;
+//           }
+//           .footer-grid {
+//             grid-template-columns: repeat(3, 1fr) !important;
+//           }
+//           .tagline {
+//             display: inline-block !important;
+//           }
+//         }
 
-        @media (max-width: 767px) {
-          .desktop-nav {
-            display: none !important;
-          }
-          .mobile-menu {
-            display: inline-block !important;
-          }
-        }
+//         @media (min-width: 768px) {
+//           .desktop-nav {
+//             display: flex !important;
+//           }
+//           .mobile-menu {
+//             display: none !important;
+//           }
+//         }
 
-        @media (max-width: 480px) {
-          .benefits-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-          .designs-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-          .footer-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
-    </div>
-  );
-};
+//         @media (max-width: 767px) {
+//           .desktop-nav {
+//             display: none !important;
+//           }
+//           .mobile-menu {
+//             display: inline-block !important;
+//           }
+//         }
 
-export default Home;
+//         @media (max-width: 480px) {
+//           .benefits-grid {
+//             grid-template-columns: repeat(2, 1fr) !important;
+//           }
+//           .designs-grid {
+//             grid-template-columns: repeat(2, 1fr) !important;
+//           }
+//           .footer-grid {
+//             grid-template-columns: 1fr !important;
+//           }
+//         }
+//       `}</style>
+//     </div>
+//   );
+// };
+
+// export default Home;
 
 
 
@@ -2075,3 +2075,2353 @@ export default Home;
 // };
 
 // export default Home;
+
+
+// // screens/Homepage.jsx
+// import React from 'react';
+// import { useNavigate, Link } from 'react-router-dom';
+// import {
+//   Ruler,
+//   Grid3x3,
+//   Calendar,
+//   Package,
+//   User,
+//   Heart,
+//   Clock,
+//   ChevronRight,
+//   Shield,
+//   RefreshCw,
+//   Award,
+//   Sparkles,
+//   Phone,
+//   Mail,
+//   MapPin,
+//   Menu,
+//   Home,
+//   Bell,
+//   Search,
+//   TrendingUp,
+//   Star,
+// } from 'lucide-react';
+
+// // Import components
+// import CardGrid from '../components/CardGrid';
+// import Hero from '../components/Hero';
+// import ProductCard from '../components/ProductCard';
+
+// const Homepage = () => {
+//   const navigate = useNavigate();
+
+//   const featuredDesigns = [
+//     { id: 1, name: 'Kaba & Slit', price: 'GHS 450', category: 'Women Wear', bg: '#EADFC2', icon: '👗' },
+//     { id: 2, name: 'Agbada Set', price: 'GHS 600', category: 'Men Wear', bg: '#DCE4EE', icon: '👔' },
+//     { id: 3, name: 'Fitted Wedding Gown', price: 'GHS 1,200', category: 'Wedding', bg: '#F2E4E4', icon: '💍' },
+//     { id: 4, name: 'Ankara Two-Piece', price: 'GHS 380', category: 'Women Wear', bg: '#F4E0C8', icon: '🧵' },
+//   ];
+
+//   const quickActions = [
+//     { icon: Ruler, label: 'Measure', path: '/measurements', color: '#1A6FD4', desc: 'Update your fit' },
+//     { icon: Grid3x3, label: 'Browse', path: '/portfolio', color: '#8BBAD4', desc: 'Explore designs' },
+//     { icon: Calendar, label: 'Book', path: '/bookings', color: '#F59E0B', desc: 'Schedule fitting' },
+//     { icon: Package, label: 'Track', path: '/tracking', color: '#22C55E', desc: 'Follow orders' },
+//   ];
+
+//   const handleNavigation = (path) => {
+//     navigate(path);
+//   };
+
+//   return (
+//     <div style={styles.container}>
+//       {/* Header */}
+//       <header style={styles.header}>
+//         <div style={styles.headerInner}>
+//           <div style={styles.headerLeft}>
+//             <div style={styles.logoSection}>
+//               <span style={styles.logo}>Squally<span style={styles.logoAccent}>line</span></span>
+//               <span style={styles.tagline}>Measured once. Fitted always.</span>
+//             </div>
+
+//             <nav style={styles.desktopNav}>
+//               <Link to="/home" style={styles.navLinkActive}>Home</Link>
+//               <Link to="/measurements" style={styles.navLink}>Measure</Link>
+//               <Link to="/portfolio" style={styles.navLink}>Portfolio</Link>
+//               <Link to="/tracking" style={styles.navLink}>Orders</Link>
+//               <Link to="/profile" style={styles.navLink}>Profile</Link>
+//             </nav>
+//           </div>
+
+//           <div style={styles.headerRight}>
+//             <button style={styles.iconButton}>
+//               <Search size={20} color="#5C7A9A" />
+//             </button>
+//             <button style={styles.iconButton}>
+//               <Bell size={20} color="#5C7A9A" />
+//             </button>
+//             <button 
+//               onClick={() => navigate('/profile')}
+//               style={styles.avatarButton}
+//             >
+//               <User size={20} color="#FFFFFF" />
+//             </button>
+//             <button style={styles.menuButton}>
+//               <Menu size={20} color="#5C7A9A" />
+//             </button>
+//           </div>
+//         </div>
+//       </header>
+
+//       {/* Main Content */}
+//       <main style={styles.main}>
+//         {/* Welcome Section */}
+//         <section style={styles.welcomeSection}>
+//           <div style={styles.welcomeContent}>
+//             <div>
+//               <h1 style={styles.welcomeTitle}>
+//                 Akwaaba, Akosua 👋
+//               </h1>
+//               <p style={styles.welcomeSubtitle}>
+//                 Your perfect fit starts with one accurate digital profile.
+//               </p>
+//             </div>
+//             <div style={styles.welcomeStats}>
+//               <div style={styles.statItem}>
+//                 <span style={styles.statNumber}>8</span>
+//                 <span style={styles.statLabel}>Measurements</span>
+//               </div>
+//               <div style={styles.statDivider} />
+//               <div style={styles.statItem}>
+//                 <span style={styles.statNumber}>12</span>
+//                 <span style={styles.statLabel}>Orders</span>
+//               </div>
+//               <div style={styles.statDivider} />
+//               <div style={styles.statItem}>
+//                 <span style={styles.statNumber}>6</span>
+//                 <span style={styles.statLabel}>Favorites</span>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+
+//         {/* Measurement Hero Card */}
+//         <div 
+//           onClick={() => navigate('/measurements')}
+//           style={styles.measurementCard}
+//           onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 8px 30px rgba(0,0,0,0.08)'}
+//           onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 2px 12px rgba(0,0,0,0.04)'}
+//         >
+//           <div style={styles.measurementCardInner}>
+//             <div style={styles.measurementCardContent}>
+//               <span style={styles.measurementBadge}>✨ Key Feature</span>
+//               <h3 style={styles.measurementTitle}>Measure once. Fit always.</h3>
+//               <p style={styles.measurementDesc}>
+//                 Create one guided measurement profile and stop repeating the same fitting process for every order.
+//               </p>
+//               <div style={styles.measurementFooter}>
+//                 <span style={styles.measurementProgress}>
+//                   <span style={styles.progressBar}>
+//                     <span style={{...styles.progressFill, width: '0%'}} />
+//                   </span>
+//                   0/8 COMPLETED
+//                 </span>
+//                 <span style={styles.measurementCTA}>
+//                   Start measuring <ChevronRight size={16} />
+//                 </span>
+//               </div>
+//             </div>
+//             <div style={styles.measurementIcon}>
+//               <Ruler size={40} color="#1A6FD4" />
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Benefits Row */}
+//         <div style={styles.benefitsGrid}>
+//           <div style={styles.benefitCard}>
+//             <RefreshCw size={20} color="#1A6FD4" />
+//             <span>Reuse every order</span>
+//           </div>
+//           <div style={styles.benefitCard}>
+//             <Shield size={20} color="#1A6FD4" />
+//             <span>Shared securely</span>
+//           </div>
+//           <div style={styles.benefitCard}>
+//             <Award size={20} color="#1A6FD4" />
+//             <span>Fewer alterations</span>
+//           </div>
+//           <div style={styles.benefitCard}>
+//             <Sparkles size={20} color="#1A6FD4" />
+//             <span>Guided accuracy</span>
+//           </div>
+//         </div>
+
+//         {/* Quick Actions */}
+//         <div style={styles.quickActionsGrid}>
+//           {quickActions.map((action, index) => (
+//             <button
+//               key={index}
+//               onClick={() => handleNavigation(action.path)}
+//               style={styles.quickAction}
+//               onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-4px)'}
+//               onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+//             >
+//               <div style={{...styles.quickActionIcon, backgroundColor: action.color + '15'}}>
+//                 <action.icon size={24} color={action.color} />
+//               </div>
+//               <span style={styles.quickActionLabel}>{action.label}</span>
+//               <span style={styles.quickActionDesc}>{action.desc}</span>
+//             </button>
+//           ))}
+//         </div>
+
+//         {/* Hero Section */}
+//         <div style={styles.heroWrapper}>
+//           <Hero />
+//         </div>
+
+//         {/* Categories Section */}
+//         <section style={styles.section}>
+//           <div style={styles.sectionHeader}>
+//             <div>
+//               <span style={styles.sectionBadge}>Collections</span>
+//               <h2 style={styles.sectionTitle}>Shop by Category</h2>
+//             </div>
+//             <button 
+//               onClick={() => navigate('/portfolio')}
+//               style={styles.seeAllButton}
+//             >
+//               See all <ChevronRight size={16} />
+//             </button>
+//           </div>
+//           <CardGrid />
+//         </section>
+
+//         {/* Upcoming Appointment */}
+//         <section style={styles.section}>
+//           <div style={styles.sectionHeader}>
+//             <div>
+//               <span style={styles.sectionBadge}>Schedule</span>
+//               <h2 style={styles.sectionTitle}>Upcoming Appointment</h2>
+//             </div>
+//           </div>
+//           <div style={styles.appointmentCard}>
+//             <div style={styles.appointmentLeft}>
+//               <div style={styles.appointmentIcon}>📅</div>
+//               <div>
+//                 <div style={styles.appointmentTitle}>Fitting Session</div>
+//                 <div style={styles.appointmentDateTime}>
+//                   <Clock size={14} /> Jul 22 · 10:00 AM
+//                 </div>
+//               </div>
+//             </div>
+//             <span style={styles.appointmentStatus}>Pending</span>
+//           </div>
+//         </section>
+
+//         {/* Featured Designs */}
+//         <section style={styles.section}>
+//           <div style={styles.sectionHeader}>
+//             <div>
+//               <span style={styles.sectionBadge}>Trending</span>
+//               <h2 style={styles.sectionTitle}>Featured Designs</h2>
+//             </div>
+//             <button 
+//               onClick={() => navigate('/portfolio')}
+//               style={styles.seeAllButton}
+//             >
+//               See all <ChevronRight size={16} />
+//             </button>
+//           </div>
+
+//           <div style={styles.designsGrid}>
+//             {featuredDesigns.map((design) => (
+//               <div 
+//                 key={design.id}
+//                 onClick={() => navigate(`/designs/${design.id}`)}
+//                 style={styles.designCard}
+//                 onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)'}
+//                 onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'none'}
+//               >
+//                 <div style={{...styles.designImage, background: design.bg}}>
+//                   <span style={styles.designEmoji}>{design.icon}</span>
+//                   <button 
+//                     style={styles.favButton}
+//                     onClick={(e) => {
+//                       e.stopPropagation();
+//                       console.log(`Toggle favorite ${design.id}`);
+//                     }}
+//                   >
+//                     <Heart size={16} color="#5C7A9A" />
+//                   </button>
+//                 </div>
+//                 <div style={styles.designContent}>
+//                   <div style={styles.designHeader}>
+//                     <span style={styles.designName}>{design.name}</span>
+//                     <span style={styles.designPrice}>{design.price}</span>
+//                   </div>
+//                   <span style={styles.designCategory}>{design.category}</span>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//         </section>
+
+//         {/* Product Card Showcase */}
+//         <section style={styles.section}>
+//           <div style={styles.sectionHeader}>
+//             <div>
+//               <span style={styles.sectionBadge}>Featured</span>
+//               <h2 style={styles.sectionTitle}>Trending Now</h2>
+//             </div>
+//           </div>
+//           <ProductCard />
+//         </section>
+
+//         {/* Footer */}
+//         <footer style={styles.footer}>
+//           <div style={styles.footerInner}>
+//             <div style={styles.footerBrand}>
+//               <h3 style={styles.footerLogo}>
+//                 Squally<span style={styles.footerLogoAccent}>line</span>
+//               </h3>
+//               <p style={styles.footerTagline}>Measured once. Fitted always.</p>
+//             </div>
+//             <div style={styles.footerLinks}>
+//               <h4 style={styles.footerLinksTitle}>Quick Links</h4>
+//               <ul style={styles.footerLinksList}>
+//                 <li><Link to="/home" style={styles.footerLink}>Home</Link></li>
+//                 <li><Link to="/portfolio" style={styles.footerLink}>Portfolio</Link></li>
+//                 <li><Link to="/measurements" style={styles.footerLink}>Measurements</Link></li>
+//                 <li><Link to="/profile" style={styles.footerLink}>Profile</Link></li>
+//               </ul>
+//             </div>
+//             <div style={styles.footerContact}>
+//               <h4 style={styles.footerLinksTitle}>Contact</h4>
+//               <ul style={styles.footerLinksList}>
+//                 <li style={styles.footerContactItem}><Phone size={16} /> +233 20 123 4567</li>
+//                 <li style={styles.footerContactItem}><Mail size={16} /> info@squallyline.com</li>
+//                 <li style={styles.footerContactItem}><MapPin size={16} /> Accra, Ghana</li>
+//               </ul>
+//             </div>
+//           </div>
+//           <div style={styles.footerBottom}>
+//             <span>&copy; 2026 Squallyline. All rights reserved.</span>
+//           </div>
+//         </footer>
+//       </main>
+
+//       {/* Responsive Styles */}
+//       <style>{`
+//         @media (min-width: 768px) {
+//           .desktop-nav { display: flex !important; }
+//           .mobile-menu { display: none !important; }
+//           .benefits-grid { grid-template-columns: repeat(4, 1fr) !important; }
+//           .designs-grid { grid-template-columns: repeat(4, 1fr) !important; }
+//           .footer-inner { grid-template-columns: repeat(3, 1fr) !important; }
+//           .tagline { display: inline-block !important; }
+//         }
+
+//         @media (max-width: 767px) {
+//           .desktop-nav { display: none !important; }
+//           .mobile-menu { display: inline-flex !important; }
+//           .tagline { display: none !important; }
+//           .welcome-stats { flex-wrap: wrap !important; gap: 8px !important; }
+//           .quick-actions-grid { grid-template-columns: repeat(2, 1fr) !important; }
+//           .designs-grid { grid-template-columns: repeat(2, 1fr) !important; }
+//           .footer-inner { grid-template-columns: 1fr !important; gap: 24px !important; }
+//           .measurement-card-inner { flex-direction: column !important; }
+//         }
+
+//         @media (max-width: 480px) {
+//           .welcome-title { font-size: 22px !important; }
+//           .quick-action { padding: 14px !important; }
+//           .design-card { border-radius: 12px !important; }
+//           .design-image { height: 120px !important; }
+//           .section-title { font-size: 18px !important; }
+//         }
+//       `}</style>
+//     </div>
+//   );
+// };
+
+// const styles = {
+//   container: {
+//     minHeight: '100vh',
+//     backgroundColor: '#F8F8FA',
+//     fontFamily: 'Inter, -apple-system, sans-serif',
+//     paddingBottom: '80px',
+//   },
+//   header: {
+//     backgroundColor: '#FFFFFF',
+//     borderBottom: '1px solid #F1F1F4',
+//     position: 'sticky',
+//     top: 0,
+//     zIndex: 50,
+//     padding: '0 20px',
+//   },
+//   headerInner: {
+//     maxWidth: '1200px',
+//     margin: '0 auto',
+//     display: 'flex',
+//     justifyContent: 'space-between',
+//     alignItems: 'center',
+//     height: '68px',
+//   },
+//   headerLeft: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '32px',
+//   },
+//   logoSection: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '12px',
+//   },
+//   logo: {
+//     fontSize: '22px',
+//     fontWeight: '700',
+//     color: '#0A0F1E',
+//     fontFamily: 'Fraunces, serif',
+//   },
+//   logoAccent: {
+//     color: '#1A6FD4',
+//   },
+//   tagline: {
+//     fontSize: '12px',
+//     color: '#8E8EA0',
+//     display: 'none',
+//   },
+//   desktopNav: {
+//     display: 'none',
+//     alignItems: 'center',
+//     gap: '28px',
+//   },
+//   navLink: {
+//     color: '#5C7A9A',
+//     fontSize: '14px',
+//     textDecoration: 'none',
+//     fontWeight: '500',
+//     transition: 'color 0.2s',
+//   },
+//   navLinkActive: {
+//     color: '#1A6FD4',
+//     fontSize: '14px',
+//     textDecoration: 'none',
+//     fontWeight: '600',
+//   },
+//   headerRight: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '8px',
+//   },
+//   iconButton: {
+//     width: '38px',
+//     height: '38px',
+//     borderRadius: '50%',
+//     border: 'none',
+//     background: 'transparent',
+//     cursor: 'pointer',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     transition: 'background 0.2s',
+//   },
+//   avatarButton: {
+//     width: '38px',
+//     height: '38px',
+//     borderRadius: '50%',
+//     border: 'none',
+//     backgroundColor: '#1A6FD4',
+//     cursor: 'pointer',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     transition: 'opacity 0.2s',
+//   },
+//   menuButton: {
+//     width: '38px',
+//     height: '38px',
+//     borderRadius: '50%',
+//     border: 'none',
+//     background: 'transparent',
+//     cursor: 'pointer',
+//     display: 'none',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+//   main: {
+//     maxWidth: '1200px',
+//     margin: '0 auto',
+//     padding: '24px 20px',
+//   },
+//   welcomeSection: {
+//     marginBottom: '28px',
+//   },
+//   welcomeContent: {
+//     display: 'flex',
+//     justifyContent: 'space-between',
+//     alignItems: 'flex-start',
+//     flexWrap: 'wrap',
+//     gap: '16px',
+//   },
+//   welcomeTitle: {
+//     fontSize: '28px',
+//     fontWeight: '700',
+//     color: '#0A0F1E',
+//     margin: 0,
+//     fontFamily: 'Fraunces, serif',
+//   },
+//   welcomeSubtitle: {
+//     color: '#5C7A9A',
+//     fontSize: '15px',
+//     marginTop: '4px',
+//   },
+//   welcomeStats: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '16px',
+//     padding: '10px 20px',
+//     backgroundColor: '#FFFFFF',
+//     borderRadius: '12px',
+//     border: '1px solid #F1F1F4',
+//   },
+//   statItem: {
+//     display: 'flex',
+//     flexDirection: 'column',
+//     alignItems: 'center',
+//   },
+//   statNumber: {
+//     fontSize: '18px',
+//     fontWeight: '700',
+//     color: '#0A0F1E',
+//   },
+//   statLabel: {
+//     fontSize: '11px',
+//     color: '#8E8EA0',
+//     fontWeight: '500',
+//   },
+//   statDivider: {
+//     width: '1px',
+//     height: '30px',
+//     backgroundColor: '#F1F1F4',
+//   },
+//   measurementCard: {
+//     backgroundColor: '#FFFFFF',
+//     borderRadius: '16px',
+//     padding: '24px',
+//     border: '1px solid #F1F1F4',
+//     marginBottom: '24px',
+//     cursor: 'pointer',
+//     transition: 'box-shadow 0.3s ease',
+//   },
+//   measurementCardInner: {
+//     display: 'flex',
+//     justifyContent: 'space-between',
+//     alignItems: 'center',
+//     gap: '20px',
+//   },
+//   measurementCardContent: {
+//     flex: 1,
+//   },
+//   measurementBadge: {
+//     fontSize: '11px',
+//     fontWeight: '600',
+//     color: '#1A6FD4',
+//     textTransform: 'uppercase',
+//     letterSpacing: '0.5px',
+//     backgroundColor: '#E8F4FB',
+//     padding: '2px 12px',
+//     borderRadius: '50px',
+//     display: 'inline-block',
+//   },
+//   measurementTitle: {
+//     fontSize: '20px',
+//     fontWeight: '700',
+//     color: '#0A0F1E',
+//     marginTop: '8px',
+//     marginBottom: '4px',
+//     fontFamily: 'Fraunces, serif',
+//   },
+//   measurementDesc: {
+//     fontSize: '14px',
+//     color: '#5C7A9A',
+//     marginTop: '4px',
+//     maxWidth: '400px',
+//   },
+//   measurementFooter: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'space-between',
+//     marginTop: '16px',
+//     paddingTop: '16px',
+//     borderTop: '1px solid #F1F1F4',
+//   },
+//   measurementProgress: {
+//     fontSize: '12px',
+//     fontWeight: '600',
+//     color: '#5C7A9A',
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '8px',
+//   },
+//   progressBar: {
+//     width: '80px',
+//     height: '4px',
+//     backgroundColor: '#F1F1F4',
+//     borderRadius: '4px',
+//     overflow: 'hidden',
+//   },
+//   progressFill: {
+//     height: '100%',
+//     backgroundColor: '#1A6FD4',
+//     borderRadius: '4px',
+//   },
+//   measurementCTA: {
+//     fontSize: '14px',
+//     fontWeight: '600',
+//     color: '#1A6FD4',
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '4px',
+//   },
+//   measurementIcon: {
+//     width: '72px',
+//     height: '72px',
+//     borderRadius: '16px',
+//     backgroundColor: '#E8F4FB',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     flexShrink: 0,
+//   },
+//   benefitsGrid: {
+//     display: 'grid',
+//     gridTemplateColumns: 'repeat(2, 1fr)',
+//     gap: '12px',
+//     marginBottom: '24px',
+//   },
+//   benefitCard: {
+//     backgroundColor: '#FFFFFF',
+//     borderRadius: '12px',
+//     padding: '14px',
+//     textAlign: 'center',
+//     border: '1px solid #F1F1F4',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     gap: '8px',
+//     fontSize: '13px',
+//     fontWeight: '500',
+//     color: '#2A3755',
+//   },
+//   quickActionsGrid: {
+//     display: 'grid',
+//     gridTemplateColumns: 'repeat(4, 1fr)',
+//     gap: '12px',
+//     marginBottom: '24px',
+//   },
+//   quickAction: {
+//     backgroundColor: '#FFFFFF',
+//     borderRadius: '14px',
+//     padding: '20px',
+//     border: '1px solid #F1F1F4',
+//     cursor: 'pointer',
+//     transition: 'all 0.3s ease',
+//     textAlign: 'center',
+//     display: 'flex',
+//     flexDirection: 'column',
+//     alignItems: 'center',
+//     gap: '4px',
+//     background: 'none',
+//   },
+//   quickActionIcon: {
+//     width: '48px',
+//     height: '48px',
+//     borderRadius: '12px',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     marginBottom: '4px',
+//   },
+//   quickActionLabel: {
+//     fontSize: '14px',
+//     fontWeight: '600',
+//     color: '#0A0F1E',
+//   },
+//   quickActionDesc: {
+//     fontSize: '11px',
+//     color: '#8E8EA0',
+//   },
+//   heroWrapper: {
+//     marginBottom: '24px',
+//   },
+//   section: {
+//     marginBottom: '32px',
+//   },
+//   sectionHeader: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'space-between',
+//     marginBottom: '16px',
+//   },
+//   sectionBadge: {
+//     fontSize: '11px',
+//     fontWeight: '600',
+//     color: '#1A6FD4',
+//     textTransform: 'uppercase',
+//     letterSpacing: '0.5px',
+//   },
+//   sectionTitle: {
+//     fontSize: '22px',
+//     fontWeight: '700',
+//     color: '#0A0F1E',
+//     margin: '4px 0 0',
+//     fontFamily: 'Fraunces, serif',
+//   },
+//   seeAllButton: {
+//     fontSize: '14px',
+//     fontWeight: '600',
+//     color: '#1A6FD4',
+//     border: 'none',
+//     background: 'none',
+//     cursor: 'pointer',
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '4px',
+//   },
+//   appointmentCard: {
+//     backgroundColor: '#FFFFFF',
+//     borderRadius: '12px',
+//     padding: '16px',
+//     border: '1px solid #F1F1F4',
+//     display: 'flex',
+//     justifyContent: 'space-between',
+//     alignItems: 'center',
+//   },
+//   appointmentLeft: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '12px',
+//   },
+//   appointmentIcon: {
+//     fontSize: '24px',
+//   },
+//   appointmentTitle: {
+//     fontSize: '15px',
+//     fontWeight: '600',
+//     color: '#0A0F1E',
+//   },
+//   appointmentDateTime: {
+//     fontSize: '13px',
+//     color: '#8E8EA0',
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '6px',
+//     marginTop: '2px',
+//   },
+//   appointmentStatus: {
+//     padding: '4px 14px',
+//     backgroundColor: '#FEF3C7',
+//     color: '#F59E0B',
+//     fontSize: '11px',
+//     fontWeight: '600',
+//     borderRadius: '50px',
+//   },
+//   designsGrid: {
+//     display: 'grid',
+//     gridTemplateColumns: 'repeat(2, 1fr)',
+//     gap: '16px',
+//   },
+//   designCard: {
+//     backgroundColor: '#FFFFFF',
+//     borderRadius: '14px',
+//     overflow: 'hidden',
+//     border: '1px solid #F1F1F4',
+//     cursor: 'pointer',
+//     transition: 'box-shadow 0.3s ease',
+//   },
+//   designImage: {
+//     height: '160px',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     position: 'relative',
+//   },
+//   designEmoji: {
+//     fontSize: '40px',
+//   },
+//   favButton: {
+//     position: 'absolute',
+//     top: '8px',
+//     right: '8px',
+//     width: '32px',
+//     height: '32px',
+//     borderRadius: '50%',
+//     backgroundColor: 'rgba(255,255,255,0.85)',
+//     border: 'none',
+//     cursor: 'pointer',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     backdropFilter: 'blur(4px)',
+//     transition: 'all 0.2s',
+//   },
+//   designContent: {
+//     padding: '12px 14px 14px',
+//   },
+//   designHeader: {
+//     display: 'flex',
+//     justifyContent: 'space-between',
+//     alignItems: 'flex-start',
+//     marginBottom: '2px',
+//   },
+//   designName: {
+//     fontSize: '14px',
+//     fontWeight: '600',
+//     color: '#0A0F1E',
+//   },
+//   designPrice: {
+//     fontSize: '14px',
+//     fontWeight: '700',
+//     color: '#1A6FD4',
+//   },
+//   designCategory: {
+//     fontSize: '12px',
+//     color: '#8E8EA0',
+//   },
+//   footer: {
+//     marginTop: '48px',
+//     paddingTop: '32px',
+//     borderTop: '1px solid #F1F1F4',
+//   },
+//   footerInner: {
+//     display: 'grid',
+//     gridTemplateColumns: '1fr',
+//     gap: '32px',
+//   },
+//   footerBrand: {
+//     display: 'flex',
+//     flexDirection: 'column',
+//     gap: '4px',
+//   },
+//   footerLogo: {
+//     fontSize: '20px',
+//     fontWeight: '700',
+//     color: '#0A0F1E',
+//     margin: 0,
+//     fontFamily: 'Fraunces, serif',
+//   },
+//   footerLogoAccent: {
+//     color: '#1A6FD4',
+//   },
+//   footerTagline: {
+//     fontSize: '14px',
+//     color: '#8E8EA0',
+//     margin: 0,
+//   },
+//   footerLinks: {
+//     display: 'flex',
+//     flexDirection: 'column',
+//   },
+//   footerLinksTitle: {
+//     fontSize: '14px',
+//     fontWeight: '600',
+//     color: '#0A0F1E',
+//     margin: '0 0 8px',
+//   },
+//   footerLinksList: {
+//     listStyle: 'none',
+//     padding: 0,
+//     margin: 0,
+//     fontSize: '14px',
+//     color: '#5C7A9A',
+//   },
+//   footerLink: {
+//     color: '#5C7A9A',
+//     textDecoration: 'none',
+//     display: 'block',
+//     padding: '4px 0',
+//     transition: 'color 0.2s',
+//   },
+//   footerContactItem: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '8px',
+//     padding: '4px 0',
+//   },
+//   footerBottom: {
+//     marginTop: '32px',
+//     paddingTop: '16px',
+//     borderTop: '1px solid #F1F1F4',
+//     textAlign: 'center',
+//     fontSize: '12px',
+//     color: '#8E8EA0',
+//   },
+// };
+
+// export default Homepage;
+
+
+// // screens/Homepage.jsx
+// import React from 'react';
+// import FeaturedDesigns from '../components/FeaturedDesigns';
+// import { useNavigate, Link } from 'react-router-dom';
+// import {
+//   Ruler,
+//   Grid3x3,
+//   Package,
+//   User,
+//   Heart,
+//   Clock,
+//   ChevronRight,
+//   Calendar,
+//   ShoppingBag,
+//   Bell,
+//   Menu,
+//   CheckCircle,
+//   TrendingUp,
+// } from 'lucide-react';
+
+// import CardGrid from '../components/CardGrid';
+// import ProductCard from '../components/ProductCard';
+
+// const Homepage = () => {
+//   const navigate = useNavigate();
+
+//   const featuredDesigns = [
+//     { id: 1, name: 'Kaba & Slit', price: 'GHS 450', category: 'Women Wear', bg: '#EADFC2', icon: '👗' },
+//     { id: 2, name: 'Agbada Set', price: 'GHS 600', category: 'Men Wear', bg: '#DCE4EE', icon: '👔' },
+//     { id: 3, name: 'Fitted Wedding Gown', price: 'GHS 1,200', category: 'Wedding', bg: '#F2E4E4', icon: '💍' },
+//   ];
+
+//   const stats = {
+//     measurements: 8,
+//     orders: 12,
+//     favorites: 6,
+//   };
+
+//   const upcomingAppointment = {
+//     title: 'Fitting Session',
+//     date: 'Jul 22',
+//     time: '10:00 AM',
+//     status: 'Pending',
+//   };
+
+//   return (
+//     <div style={styles.container}>
+//       {/* Header */}
+//       <header style={styles.header}>
+//         <div style={styles.headerInner}>
+//           <div style={styles.headerLeft}>
+//             <span style={styles.logo}>
+//               Squally<span style={styles.logoAccent}>line</span>
+//             </span>
+//             <span style={styles.tagline}>Measured once. Fitted always.</span>
+//           </div>
+//           <div style={styles.headerRight}>
+//             <button style={styles.iconButton}>
+//               <Bell size={20} color="#5C7A9A" />
+//             </button>
+//             <button
+//               onClick={() => navigate('/profile')}
+//               style={styles.avatarButton}
+//             >
+//               <User size={20} color="#FFFFFF" />
+//             </button>
+//           </div>
+//         </div>
+//       </header>
+
+//       {/* Main Content */}
+//       <main style={styles.main}>
+//         {/* Welcome Section */}
+//         <section style={styles.welcomeSection}>
+//           <h1 style={styles.welcomeTitle}>
+//             Akwaaba, Akosua
+//           </h1>
+//           <p style={styles.welcomeSubtitle}>
+//             Your perfect fit starts here.
+//           </p>
+//         </section>
+
+//         {/* Primary Action: Get Measured */}
+//         <div
+//           onClick={() => navigate('/measurements')}
+//           style={styles.measurementCard}
+//           onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 8px 30px rgba(26,111,212,0.15)'}
+//           onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 4px 16px rgba(26,111,212,0.1)'}
+//         >
+//           {/* <div style={styles.measurementCardInner}>
+//             <div style={styles.measurementCardContent}>
+//               <div style={styles.measurementBadge}>
+//                 <Ruler size={14} color="#1A6FD4" />
+//                 Get Measured
+//               </div>
+//               <h3 style={styles.measurementTitle}>
+//                 Create your fit profile
+//               </h3>
+//               <p style={styles.measurementDesc}>
+//                 {stats.measurements}/8 measurements complete
+//               </p>
+//               <div style={styles.measurementFooter}>
+//                 <div style={styles.progressBar}>
+//                   <div style={{ ...styles.progressFill, width: `${(stats.measurements / 8) * 100}%` }} />
+//                 </div>
+//                 <span style={styles.measurementCTA}>
+//                   Continue measuring <ChevronRight size={16} />
+//                 </span>
+//               </div>
+//             </div>
+//             <div style={styles.measurementIcon}>
+//               <Ruler size={36} color="#1A6FD4" />
+//             </div>
+//           </div> */}
+//         <div 
+//           onClick={() => navigate('/measurements')}
+//           style={styles.measurementCard}
+//           onMouseEnter={(e) => {
+//             e.currentTarget.style.transform = 'translateY(-4px)';
+//             e.currentTarget.style.boxShadow = '0 12px 40px rgba(26,111,212,0.15)';
+//           }}
+//           onMouseLeave={(e) => {
+//             e.currentTarget.style.transform = 'translateY(0)';
+//             e.currentTarget.style.boxShadow = '0 4px 20px rgba(26,111,212,0.08)';
+//           }}
+//           className="home-measurement-card"
+//         >
+//           <div style={styles.measurementCardInner}>
+//             {/* Left Content */}
+//             <div style={styles.measurementCardContent}>
+//               <div style={styles.measurementBadge}>
+//                 <div style={styles.badgeDot} />
+//                 <Ruler size={14} color="#1A6FD4" />
+//                 Get Measured
+//               </div>
+
+//               <h3 style={styles.measurementTitle}>
+//                 Create Your Fit Profile
+//               </h3>
+
+//               <p style={styles.measurementDesc}>
+//                 <span style={styles.measurementProgressText}>
+//                   {stats.measurements} of 8 measurements complete
+//                 </span>
+//               </p>
+
+//               <div style={styles.measurementFooter}>
+//                 <div style={styles.progressWrapper}>
+//                   <div style={styles.progressBar}>
+//                     <div style={{ ...styles.progressFill, width: `${(stats.measurements / 8) * 100}%` }} />
+//                   </div>
+//                   <div style={styles.progressSteps}>
+//                     {[...Array(8)].map((_, i) => (
+//                       <div
+//                         key={i}
+//                         style={{
+//                           ...styles.progressStep,
+//                           ...(i < stats.measurements ? styles.progressStepActive : {}),
+//                         }}
+//                       />
+//                     ))}
+//                   </div>
+//                 </div>
+//                 <span style={styles.measurementCTA}>
+//                   Continue <ChevronRight size={16} style={styles.ctaIcon} className="home-measurement-cta-icon" />
+//                 </span>
+//               </div>
+//             </div>
+
+//             {/* Right Icon */}
+//             <div style={styles.measurementIcon}>
+//               <div style={styles.iconRing} className="home-measurement-icon-ring">
+//                 <div style={styles.iconPulse} />
+//                 <Ruler size={32} color="#1A6FD4" />
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Stats Row */}
+//         <div style={styles.statsRow}>
+//           <div style={styles.statCard}>
+//             <span style={styles.statNumber}>{stats.measurements}/8</span>
+//             <span style={styles.statLabel}>Measured</span>
+//           </div>
+//           <div style={styles.statDivider} />
+//           <div style={styles.statCard}>
+//             <span style={styles.statNumber}>{stats.orders}</span>
+//             <span style={styles.statLabel}>Orders</span>
+//           </div>
+//           <div style={styles.statDivider} />
+//           <div style={styles.statCard}>
+//             <span style={styles.statNumber}>{stats.favorites}</span>
+//             <span style={styles.statLabel}>Favorites</span>
+//           </div>
+//         </div>
+//         </div>
+
+//         {/* Stats Row */}
+//         <div style={styles.statsRow}>
+//           <div style={styles.statCard}>
+//             <span style={styles.statNumber}>{stats.measurements}/8</span>
+//             <span style={styles.statLabel}>Measured</span>
+//           </div>
+//           <div style={styles.statDivider} />
+//           <div style={styles.statCard}>
+//             <span style={styles.statNumber}>{stats.orders}</span>
+//             <span style={styles.statLabel}>Orders</span>
+//           </div>
+//           <div style={styles.statDivider} />
+//           <div style={styles.statCard}>
+//             <span style={styles.statNumber}>{stats.favorites}</span>
+//             <span style={styles.statLabel}>Favorites</span>
+//           </div>
+//         </div>
+
+
+//         {/* Upcoming Appointment */}
+//         <section style={styles.section}>
+//           <div style={styles.sectionHeader}>
+//             <span style={styles.sectionLabel}>
+//               <Calendar size={16} color="#1A6FD4" />
+//               Upcoming Appointment
+//             </span>
+//           </div>
+//           <div
+//             style={styles.appointmentCard}
+//             onClick={() => navigate('/bookings')}
+//           >
+//             <div style={styles.appointmentLeft}>
+//               <div style={styles.appointmentIcon}>📅</div>
+//               <div>
+//                 <div style={styles.appointmentTitle}>{upcomingAppointment.title}</div>
+//                 <div style={styles.appointmentDateTime}>
+//                   <Clock size={14} />
+//                   {upcomingAppointment.date} · {upcomingAppointment.time}
+//                 </div>
+//               </div>
+//             </div>
+//             <span style={styles.appointmentStatus}>Pending</span>
+//           </div>
+//         </section>
+
+//         {/* Categories */}
+//         <section style={styles.section}>
+//           <div style={styles.sectionHeader}>
+//             <span style={styles.sectionLabel}>Categories</span>
+//             <button
+//               onClick={() => navigate('/portfolio')}
+//               style={styles.seeAllButton}
+//             >
+//               See all <ChevronRight size={14} />
+//             </button>
+//           </div>
+//           <CardGrid />
+//         </section>
+//         <section style={styles.section}>
+//           <div style={styles.sectionHeader}>
+//             <span style={styles.sectionLabel}>Featured Designs</span>
+//             <button
+//               onClick={() => navigate('/portfolio')}
+//               style={styles.seeAllButton}
+//             >
+//               See all <ChevronRight size={14} />
+//             </button>
+//           </div>
+//           <FeaturedDesigns />
+//         </section>
+//       </main>
+
+//     </div>
+//   );
+// };
+
+// const styles = {
+//   container: {
+//     minHeight: '100vh',
+//     backgroundColor: '#F8F8FA',
+//     fontFamily: 'Inter, -apple-system, sans-serif',
+//     paddingBottom: '80px',
+//   },
+//   header: {
+//     backgroundColor: '#FFFFFF',
+//     borderBottom: '1px solid #F1F1F4',
+//     position: 'sticky',
+//     top: 0,
+//     zIndex: 50,
+//     padding: '0 20px',
+//   },
+//   headerInner: {
+//     maxWidth: '1200px',
+//     margin: '0 auto',
+//     display: 'flex',
+//     justifyContent: 'space-between',
+//     alignItems: 'center',
+//     height: '64px',
+//   },
+//   headerLeft: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '12px',
+//   },
+//   logo: {
+//     fontSize: '20px',
+//     fontWeight: '700',
+//     color: '#0A0F1E',
+//     fontFamily: 'Fraunces, serif',
+//   },
+//   logoAccent: {
+//     color: '#1A6FD4',
+//   },
+//   tagline: {
+//     fontSize: '12px',
+//     color: '#8E8EA0',
+//     display: 'none',
+//   },
+//   headerRight: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '8px',
+//   },
+//   iconButton: {
+//     width: '38px',
+//     height: '38px',
+//     borderRadius: '50%',
+//     border: 'none',
+//     background: 'transparent',
+//     cursor: 'pointer',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     transition: 'background 0.2s',
+//   },
+//   avatarButton: {
+//     width: '38px',
+//     height: '38px',
+//     borderRadius: '50%',
+//     border: 'none',
+//     backgroundColor: '#1A6FD4',
+//     cursor: 'pointer',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     transition: 'opacity 0.2s',
+//   },
+//   main: {
+//     maxWidth: '540px',
+//     margin: '0 auto',
+//     padding: '20px 20px 40px',
+//   },
+//   welcomeSection: {
+//     marginBottom: '24px',
+//   },
+//   welcomeTitle: {
+//     fontSize: '26px',
+//     fontWeight: '700',
+//     color: '#0A0F1E',
+//     margin: 0,
+//     fontFamily: 'Fraunces, serif',
+//   },
+//   welcomeSubtitle: {
+//     color: '#5C7A9A',
+//     fontSize: '15px',
+//     marginTop: '4px',
+//   },
+//   measurementCard: {
+//     backgroundColor: '#FFFFFF',
+//     borderRadius: '16px',
+//     padding: '20px 24px',
+//     border: '1px solid #F1F1F4',
+//     marginBottom: '20px',
+//     cursor: 'pointer',
+//     transition: 'box-shadow 0.3s ease',
+//     boxShadow: '0 4px 16px rgba(26,111,212,0.08)',
+//   },
+//   measurementCardInner: {
+//     display: 'flex',
+//     justifyContent: 'space-between',
+//     alignItems: 'center',
+//     gap: '16px',
+//   },
+//   measurementCardContent: {
+//     flex: 1,
+//   },
+//   measurementBadge: {
+//     display: 'inline-flex',
+//     alignItems: 'center',
+//     gap: '6px',
+//     fontSize: '11px',
+//     fontWeight: '600',
+//     color: '#1A6FD4',
+//     textTransform: 'uppercase',
+//     letterSpacing: '0.5px',
+//     backgroundColor: '#E8F4FB',
+//     padding: '2px 12px',
+//     borderRadius: '50px',
+//   },
+//   measurementTitle: {
+//     fontSize: '18px',
+//     fontWeight: '600',
+//     color: '#0A0F1E',
+//     marginTop: '6px',
+//     marginBottom: '2px',
+//     fontFamily: 'Fraunces, serif',
+//   },
+//   measurementDesc: {
+//     fontSize: '14px',
+//     color: '#5C7A9A',
+//     marginBottom: '12px',
+//   },
+//   measurementFooter: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'space-between',
+//     gap: '12px',
+//   },
+//   progressBar: {
+//     flex: 1,
+//     height: '4px',
+//     backgroundColor: '#F1F1F4',
+//     borderRadius: '4px',
+//     overflow: 'hidden',
+//   },
+//   progressFill: {
+//     height: '100%',
+//     backgroundColor: '#1A6FD4',
+//     borderRadius: '4px',
+//     transition: 'width 0.5s ease',
+//   },
+//   measurementCTA: {
+//     fontSize: '13px',
+//     fontWeight: '600',
+//     color: '#1A6FD4',
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '2px',
+//     whiteSpace: 'nowrap',
+//   },
+//   measurementIcon: {
+//     width: '64px',
+//     height: '64px',
+//     borderRadius: '14px',
+//     backgroundColor: '#E8F4FB',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     flexShrink: 0,
+//   },
+//   statsRow: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'space-around',
+//     backgroundColor: '#FFFFFF',
+//     borderRadius: '12px',
+//     padding: '14px 20px',
+//     border: '1px solid #F1F1F4',
+//     marginBottom: '24px',
+//   },
+//   statCard: {
+//     display: 'flex',
+//     flexDirection: 'column',
+//     alignItems: 'center',
+//   },
+//   statNumber: {
+//     fontSize: '18px',
+//     fontWeight: '700',
+//     color: '#0A0F1E',
+//   },
+//   statLabel: {
+//     fontSize: '11px',
+//     color: '#8E8EA0',
+//     fontWeight: '500',
+//   },
+//   statDivider: {
+//     width: '1px',
+//     height: '30px',
+//     backgroundColor: '#F1F1F4',
+//   },
+//   section: {
+//     marginBottom: '24px',
+//   },
+//   sectionHeader: {
+//     display: 'flex',
+//     justifyContent: 'space-between',
+//     alignItems: 'center',
+//     marginBottom: '12px',
+//   },
+//   sectionLabel: {
+//     fontSize: '14px',
+//     fontWeight: '600',
+//     color: '#0A0F1E',
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '6px',
+//   },
+//   seeAllButton: {
+//     fontSize: '13px',
+//     fontWeight: '500',
+//     color: '#1A6FD4',
+//     border: 'none',
+//     background: 'none',
+//     cursor: 'pointer',
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '2px',
+//     fontFamily: 'Inter, sans-serif',
+//   },
+//   appointmentCard: {
+//     backgroundColor: '#FFFFFF',
+//     borderRadius: '12px',
+//     padding: '16px',
+//     border: '1px solid #F1F1F4',
+//     display: 'flex',
+//     justifyContent: 'space-between',
+//     alignItems: 'center',
+//     cursor: 'pointer',
+//     transition: 'box-shadow 0.2s',
+//   },
+//   appointmentLeft: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '12px',
+//   },
+//   appointmentIcon: {
+//     fontSize: '24px',
+//   },
+//   appointmentTitle: {
+//     fontSize: '15px',
+//     fontWeight: '600',
+//     color: '#0A0F1E',
+//   },
+//   appointmentDateTime: {
+//     fontSize: '13px',
+//     color: '#8E8EA0',
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '6px',
+//     marginTop: '2px',
+//   },
+//   appointmentStatus: {
+//     padding: '4px 14px',
+//     backgroundColor: '#FEF3C7',
+//     color: '#F59E0B',
+//     fontSize: '11px',
+//     fontWeight: '600',
+//     borderRadius: '50px',
+//   },
+//   designsRow: {
+//     display: 'grid',
+//     gridTemplateColumns: 'repeat(3, 1fr)',
+//     gap: '12px',
+//   },
+//   designCard: {
+//     backgroundColor: '#FFFFFF',
+//     borderRadius: '12px',
+//     overflow: 'hidden',
+//     border: '1px solid #F1F1F4',
+//     cursor: 'pointer',
+//     transition: 'transform 0.2s, box-shadow 0.2s',
+//   },
+//   designImage: {
+//     height: '100px',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     position: 'relative',
+//   },
+//   designEmoji: {
+//     fontSize: '32px',
+//   },
+//   designContent: {
+//     padding: '8px 10px 10px',
+//   },
+//   designName: {
+//     fontSize: '13px',
+//     fontWeight: '600',
+//     color: '#0A0F1E',
+//     display: 'block',
+//   },
+//   designPrice: {
+//     fontSize: '12px',
+//     fontWeight: '600',
+//     color: '#1A6FD4',
+//     display: 'block',
+//     marginTop: '2px',
+//   },
+// measurementCard: {
+//     backgroundColor: '#FFFFFF',
+//     borderRadius: '16px',
+//     padding: '24px 28px',
+//     border: '1px solid #F1F1F4',
+//     marginBottom: '20px',
+//     cursor: 'pointer',
+//     transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+//     boxShadow: '0 4px 20px rgba(26,111,212,0.06)',
+//     position: 'relative',
+//     overflow: 'hidden',
+//   },
+//   measurementCardInner: {
+//     display: 'flex',
+//     justifyContent: 'space-between',
+//     alignItems: 'center',
+//     gap: '20px',
+//   },
+//   measurementCardContent: {
+//     flex: 1,
+//   },
+//   measurementBadge: {
+//     display: 'inline-flex',
+//     alignItems: 'center',
+//     gap: '8px',
+//     fontSize: '11px',
+//     fontWeight: '600',
+//     color: '#1A6FD4',
+//     textTransform: 'uppercase',
+//     letterSpacing: '0.8px',
+//     backgroundColor: '#E8F4FB',
+//     padding: '4px 14px',
+//     borderRadius: '50px',
+//   },
+//   badgeDot: {
+//     width: '6px',
+//     height: '6px',
+//     borderRadius: '50%',
+//     backgroundColor: '#22C55E',
+//     animation: 'pulse-dot 1.5s ease-in-out infinite',
+//   },
+//   measurementTitle: {
+//     fontSize: '20px',
+//     fontWeight: '700',
+//     color: '#0A0F1E',
+//     marginTop: '12px',
+//     marginBottom: '4px',
+//     fontFamily: 'Fraunces, serif',
+//     letterSpacing: '-0.3px',
+//   },
+//   measurementDesc: {
+//     fontSize: '14px',
+//     color: '#5C7A9A',
+//     marginBottom: '16px',
+//   },
+//   measurementProgressText: {
+//     fontWeight: '500',
+//   },
+//   measurementFooter: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'space-between',
+//     gap: '16px',
+//   },
+//   progressWrapper: {
+//     flex: 1,
+//     display: 'flex',
+//     flexDirection: 'column',
+//     gap: '6px',
+//   },
+//   progressBar: {
+//     width: '100%',
+//     height: '6px',
+//     backgroundColor: '#F1F1F4',
+//     borderRadius: '6px',
+//     overflow: 'hidden',
+//   },
+//   progressFill: {
+//     height: '100%',
+//     backgroundColor: '#1A6FD4',
+//     borderRadius: '6px',
+//     transition: 'width 0.6s ease',
+//   },
+//   progressSteps: {
+//     display: 'flex',
+//     gap: '4px',
+//   },
+//   progressStep: {
+//     width: '100%',
+//     height: '3px',
+//     borderRadius: '3px',
+//     backgroundColor: '#F1F1F4',
+//     transition: 'background-color 0.3s ease',
+//   },
+//   progressStepActive: {
+//     backgroundColor: '#1A6FD4',
+//   },
+//   measurementCTA: {
+//     fontSize: '13px',
+//     fontWeight: '600',
+//     color: '#1A6FD4',
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '4px',
+//     whiteSpace: 'nowrap',
+//     transition: 'transform 0.2s ease',
+//   },
+//   ctaIcon: {
+//     transition: 'transform 0.2s ease',
+//   },
+//   measurementIcon: {
+//     width: '72px',
+//     height: '72px',
+//     borderRadius: '50%',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     flexShrink: 0,
+//     position: 'relative',
+//   },
+//   iconRing: {
+//     width: '72px',
+//     height: '72px',
+//     borderRadius: '50%',
+//     backgroundColor: '#E8F4FB',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     position: 'relative',
+//     transition: 'transform 0.3s ease',
+//   },
+//   iconPulse: {
+//     position: 'absolute',
+//     width: '72px',
+//     height: '72px',
+//     borderRadius: '50%',
+//     border: '2px solid rgba(26,111,212,0.15)',
+//     animation: 'pulse-ring 2s ease-in-out infinite',
+//   },
+
+// };
+
+// // Add hover styles
+// const styleSheet = document.createElement("style");
+// styleSheet.textContent = `
+//   @media (min-width: 768px) {
+//     .home-tagline {
+//       display: inline-block !important;
+//     }
+//     .home-designs-row {
+//       grid-template-columns: repeat(3, 1fr) !important;
+//     }
+//   }
+
+//   @media (max-width: 480px) {
+//     .home-welcome-title {
+//       font-size: 22px !important;
+//     }
+//     .home-measurement-card {
+//       padding: 16px 18px !important;
+//     }
+//     .home-measurement-title {
+//       font-size: 16px !important;
+//     }
+//     .home-designs-row {
+//       grid-template-columns: repeat(3, 1fr) !important;
+//       gap: 8px !important;
+//     }
+//     .home-design-image {
+//       height: 80px !important;
+//     }
+//     .home-design-emoji {
+//       font-size: 24px !important;
+//     }
+//     .home-design-name {
+//       font-size: 11px !important;
+//     }
+//     .home-design-price {
+//       font-size: 11px !important;
+//     }
+//     .home-stats-row {
+//       padding: 10px 14px !important;
+//     }
+//     .home-stat-number {
+//       font-size: 16px !important;
+//     }
+//     .home-appointment-card {
+//       padding: 12px 14px !important;
+//     }
+//   }
+
+//   @media (max-width: 360px) {
+//     .home-designs-row {
+//       grid-template-columns: repeat(3, 1fr) !important;
+//       gap: 6px !important;
+//     }
+//     .home-design-image {
+//       height: 70px !important;
+//     }
+//     .home-design-emoji {
+//       font-size: 20px !important;
+//     }
+//     .home-design-content {
+//       padding: 6px 8px 8px !important;
+//     }
+//     .home-design-name {
+//       font-size: 10px !important;
+//     }
+//     .home-design-price {
+//       font-size: 10px !important;
+//     }
+//   }
+// `;
+// document.head.appendChild(styleSheet);
+
+// export default Homepage;
+
+// screens/Homepage.jsx
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import {
+  Ruler,
+  Grid3x3,
+  Package,
+  User,
+  Heart,
+  Clock,
+  ChevronRight,
+  Calendar,
+  Bell,
+} from 'lucide-react';
+
+import CardGrid from '../components/CardGrid';
+import FeaturedDesigns from '../components/FeaturedDesigns';
+
+const Homepage = () => {
+  const navigate = useNavigate();
+
+  const stats = {
+    measurements: 5,
+  };
+
+  const upcomingAppointment = {
+    title: 'You Are Going To The Tailor At this Time',
+    date: 'Jul 22',
+    time: '10:00 AM',
+    status: 'Pending',
+  };
+
+  return (
+    <div style={styles.container}>
+      {/* Header */}
+      <header style={styles.header}>
+        <div style={styles.headerInner}>
+          <div style={styles.headerLeft}>
+            <span style={styles.logo}>
+              Squally<span style={styles.logoAccent}>line</span>
+            </span>
+            <span style={styles.tagline}>Measured once. Fitted always.</span>
+          </div>
+          <div style={styles.headerRight}>
+            <button style={styles.iconButton}>
+              <Bell size={20} color="#5C7A9A" />
+            </button>
+            <button
+              onClick={() => navigate('/profile')}
+              style={styles.avatarButton}
+            >
+              <User size={20} color="#FFFFFF" />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main style={styles.main}>
+        {/* Welcome Section */}
+        <section style={styles.welcomeSection}>
+          <h1 style={styles.welcomeTitle}>
+            Akwaaba, Akosua
+          </h1>
+          <p style={styles.welcomeSubtitle}>
+            Your perfect fit starts here.
+          </p>
+        </section>
+
+        {/* PRIMARY ACTION: Get Measured */}
+        <div
+          onClick={() => navigate('/measurements')}
+          style={styles.measurementCard}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-4px)';
+            e.currentTarget.style.boxShadow = '0 12px 40px rgba(26,111,212,0.15)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 4px 20px rgba(26,111,212,0.08)';
+          }}
+          className="home-measurement-card"
+        >
+          <div style={styles.measurementCardInner}>
+            {/* Left Content */}
+            <div style={styles.measurementCardContent}>
+              <div style={styles.measurementBadge}>
+                <div style={styles.badgeDot} />
+                <Ruler size={14} color="#1A6FD4" />
+                Get Measured
+              </div>
+
+              <h3 style={styles.measurementTitle}>
+                Create Your Fit Profile
+              </h3>
+
+              <p style={styles.measurementDesc}>
+                <span style={styles.measurementProgressText}>
+                  {stats.measurements} of 8 measurements complete
+                </span>
+              </p>
+
+              <div style={styles.measurementFooter}>
+                <div style={styles.progressWrapper}>
+                  <div style={styles.progressBar}>
+                    <div style={{ ...styles.progressFill, width: `${(stats.measurements / 8) * 100}%` }} />
+                  </div>
+                  <div style={styles.progressSteps}>
+                    {[...Array(8)].map((_, i) => (
+                      <div
+                        key={i}
+                        style={{
+                          ...styles.progressStep,
+                          ...(i < stats.measurements ? styles.progressStepActive : {}),
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <span style={styles.measurementCTA}>
+                  Continue <ChevronRight size={16} style={styles.ctaIcon} className="home-measurement-cta-icon" />
+                </span>
+              </div>
+            </div>
+
+            {/* Right Icon */}
+            <div style={styles.measurementIcon}>
+              <div style={styles.iconRing} className="home-measurement-icon-ring">
+                <div style={styles.iconPulse} />
+                <Ruler size={32} color="#1A6FD4" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Upcoming Appointment */}
+        <section style={styles.section}>
+          <div style={styles.sectionHeader}>
+            <span style={styles.sectionLabel}>
+              <Calendar size={16} color="#1A6FD4" />
+              Upcoming Appointment
+            </span>
+            <button
+              onClick={() => navigate('/bookings')}
+              style={styles.seeAllButton}
+            >
+              View all <ChevronRight size={14} />
+            </button>
+          </div>
+
+          <div
+            style={styles.appointmentCard}
+            onClick={() => navigate('/bookings')}
+            className="home-appointment-card"
+          >
+            {/* Left: Icon + Info */}
+            <div style={styles.appointmentLeft}>
+              <div style={styles.appointmentIconWrapper}>
+                <div style={styles.appointmentIconInner}>
+                  <Calendar size={22} color="#1A6FD4" />
+                </div>
+                <div style={styles.appointmentBadgeDot} />
+              </div>
+              <div>
+                <div style={styles.appointmentTitle}>{upcomingAppointment.title}</div>
+                <div style={styles.appointmentDateTime}>
+                  <Clock size={14} color="#8E8EA0" />
+                  <span>{upcomingAppointment.date} · {upcomingAppointment.time}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Status + Action */}
+            <div style={styles.appointmentRight}>
+              <span style={styles.appointmentStatus}>Pending</span>
+              <ChevronRight size={18} color="#DCE4EE" style={styles.appointmentArrow} />
+            </div>
+          </div>
+        </section>
+
+        {/* Categories */}
+        <section style={styles.section}>
+          <div style={styles.sectionHeader}>
+            <span style={styles.sectionLabel}>Categories</span>
+            <button
+              onClick={() => navigate('/portfolio')}
+              style={styles.seeAllButton}
+            >
+              See all <ChevronRight size={14} />
+            </button>
+          </div>
+          <CardGrid />
+        </section>
+
+        {/* Featured Designs */}
+        <section style={styles.section}>
+          <div style={styles.sectionHeader}>
+            <span style={styles.sectionLabel}>Featured Designs</span>
+            <button
+              onClick={() => navigate('/portfolio')}
+              style={styles.seeAllButton}
+            >
+              See all <ChevronRight size={14} />
+            </button>
+          </div>
+          <FeaturedDesigns />
+        </section>
+      </main>
+    </div>
+  );
+};
+
+const styles = {
+  container: {
+    minHeight: '100vh',
+    backgroundColor: '#F8F8FA',
+    fontFamily: 'Inter, -apple-system, sans-serif',
+    paddingBottom: '80px',
+  },
+  header: {
+    backgroundColor: '#FFFFFF',
+    borderBottom: '1px solid #F1F1F4',
+    position: 'sticky',
+    top: 0,
+    zIndex: 50,
+    padding: '0 20px',
+  },
+  headerInner: {
+    maxWidth: '1200px',
+    margin: '0 auto',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: '64px',
+  },
+  headerLeft: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+  },
+  logo: {
+    fontSize: '20px',
+    fontWeight: '700',
+    color: '#0A0F1E',
+    fontFamily: 'Fraunces, serif',
+  },
+  logoAccent: {
+    color: '#1A6FD4',
+  },
+  tagline: {
+    fontSize: '12px',
+    color: '#8E8EA0',
+    display: 'none',
+  },
+  headerRight: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+  },
+  iconButton: {
+    width: '38px',
+    height: '38px',
+    borderRadius: '50%',
+    border: 'none',
+    background: 'transparent',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    transition: 'background 0.2s',
+  },
+  avatarButton: {
+    width: '38px',
+    height: '38px',
+    borderRadius: '50%',
+    border: 'none',
+    backgroundColor: '#1A6FD4',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    transition: 'opacity 0.2s',
+  },
+  main: {
+    maxWidth: '540px',
+    margin: '0 auto',
+    padding: '20px 20px 40px',
+  },
+  welcomeSection: {
+    marginBottom: '20px',
+  },
+  welcomeTitle: {
+    fontSize: '26px',
+    fontWeight: '700',
+    color: '#0A0F1E',
+    margin: 0,
+    fontFamily: 'Fraunces, serif',
+  },
+  welcomeSubtitle: {
+    color: '#5C7A9A',
+    fontSize: '15px',
+    marginTop: '4px',
+  },
+  // Measurement Card Styles
+  measurementCard: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: '16px',
+    padding: '24px 28px',
+    border: '1px solid #F1F1F4',
+    marginBottom: '20px',
+    cursor: 'pointer',
+    transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+    boxShadow: '0 4px 20px rgba(26,111,212,0.06)',
+    position: 'relative',
+    overflow: 'hidden',
+  },
+  measurementCardInner: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: '20px',
+  },
+  measurementCardContent: {
+    flex: 1,
+  },
+  measurementBadge: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '8px',
+    fontSize: '11px',
+    fontWeight: '600',
+    color: '#1A6FD4',
+    textTransform: 'uppercase',
+    letterSpacing: '0.8px',
+    backgroundColor: '#E8F4FB',
+    padding: '4px 14px',
+    borderRadius: '50px',
+  },
+  badgeDot: {
+    width: '6px',
+    height: '6px',
+    borderRadius: '50%',
+    backgroundColor: '#22C55E',
+    animation: 'pulse-dot 1.5s ease-in-out infinite',
+  },
+  measurementTitle: {
+    fontSize: '20px',
+    fontWeight: '700',
+    color: '#0A0F1E',
+    marginTop: '12px',
+    marginBottom: '4px',
+    fontFamily: 'Fraunces, serif',
+    letterSpacing: '-0.3px',
+  },
+  measurementDesc: {
+    fontSize: '14px',
+    color: '#5C7A9A',
+    marginBottom: '16px',
+  },
+  measurementProgressText: {
+    fontWeight: '500',
+  },
+  measurementFooter: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: '16px',
+  },
+  progressWrapper: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '6px',
+  },
+  progressBar: {
+    width: '100%',
+    height: '6px',
+    backgroundColor: '#F1F1F4',
+    borderRadius: '6px',
+    overflow: 'hidden',
+  },
+  progressFill: {
+    height: '100%',
+    backgroundColor: '#1A6FD4',
+    borderRadius: '6px',
+    transition: 'width 0.6s ease',
+  },
+  progressSteps: {
+    display: 'flex',
+    gap: '4px',
+  },
+  progressStep: {
+    width: '100%',
+    height: '3px',
+    borderRadius: '3px',
+    backgroundColor: '#F1F1F4',
+    transition: 'background-color 0.3s ease',
+  },
+  progressStepActive: {
+    backgroundColor: '#1A6FD4',
+  },
+  measurementCTA: {
+    fontSize: '13px',
+    fontWeight: '600',
+    color: '#1A6FD4',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '4px',
+    whiteSpace: 'nowrap',
+    transition: 'transform 0.2s ease',
+  },
+  ctaIcon: {
+    transition: 'transform 0.2s ease',
+  },
+  measurementIcon: {
+    width: '72px',
+    height: '72px',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexShrink: 0,
+    position: 'relative',
+  },
+  iconRing: {
+    width: '72px',
+    height: '72px',
+    borderRadius: '50%',
+    backgroundColor: '#E8F4FB',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative',
+    transition: 'transform 0.3s ease',
+  },
+  iconPulse: {
+    position: 'absolute',
+    width: '72px',
+    height: '72px',
+    borderRadius: '50%',
+    border: '2px solid rgba(26,111,212,0.15)',
+    animation: 'pulse-ring 2s ease-in-out infinite',
+  },
+  // Section Styles
+  section: {
+    marginBottom: '24px',
+  },
+  sectionHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: '12px',
+  },
+  sectionLabel: {
+    fontSize: '14px',
+    fontWeight: '600',
+    color: '#0A0F1E',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '6px',
+  },
+  seeAllButton: {
+    fontSize: '13px',
+    fontWeight: '500',
+    color: '#1A6FD4',
+    border: 'none',
+    background: 'none',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '2px',
+    fontFamily: 'Inter, sans-serif',
+  },
+  // Appointment Styles
+  
+ // Replace existing appointment styles with these
+appointmentCard: {
+  backgroundColor: '#FFFFFF',
+  borderRadius: '14px',
+  padding: '16px 20px',
+  border: '1px solid #F1F1F4',
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  cursor: 'pointer',
+  transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+  boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+  position: 'relative',
+  overflow: 'hidden',
+},
+appointmentLeft: {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '14px',
+  flex: 1,
+},
+appointmentIconWrapper: {
+  position: 'relative',
+  width: '44px',
+  height: '44px',
+  flexShrink: 0,
+},
+appointmentIconInner: {
+  width: '44px',
+  height: '44px',
+  borderRadius: '12px',
+  backgroundColor: '#E8F4FB',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  transition: 'all 0.3s ease',
+},
+appointmentBadgeDot: {
+  position: 'absolute',
+  top: '-2px',
+  right: '-2px',
+  width: '10px',
+  height: '10px',
+  borderRadius: '50%',
+  backgroundColor: '#22C55E',
+  border: '2px solid #FFFFFF',
+  animation: 'pulse-dot 1.5s ease-in-out infinite',
+},
+appointmentTitle: {
+  fontSize: '15px',
+  fontWeight: '600',
+  color: '#0A0F1E',
+  marginBottom: '2px',
+},
+appointmentDateTime: {
+  fontSize: '13px',
+  color: '#8E8EA0',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '6px',
+},
+appointmentRight: {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '12px',
+  flexShrink: 0,
+},
+appointmentStatus: {
+  padding: '4px 14px',
+  backgroundColor: '#FEF3C7',
+  color: '#F59E0B',
+  fontSize: '11px',
+  fontWeight: '600',
+  borderRadius: '50px',
+  whiteSpace: 'nowrap',
+},
+appointmentArrow: {
+  transition: 'transform 0.3s ease',
+},
+};
+
+// Add animations
+const styleSheet = document.createElement("style");
+styleSheet.textContent = `
+  @keyframes pulse-dot {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.15); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .home-measurement-card:hover .home-measurement-cta-icon {
+    transform: translateX(4px);
+  }
+
+  .home-measurement-card:hover .home-measurement-icon-ring {
+    transform: scale(1.05);
+  }
+
+  @media (min-width: 768px) {
+    .home-tagline {
+      display: inline-block !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .home-welcome-title {
+      font-size: 22px !important;
+    }
+    .home-measurement-card {
+      padding: 16px 18px !important;
+    }
+    .home-measurement-title {
+      font-size: 17px !important;
+    }
+    .home-measurement-icon {
+      width: 56px !important;
+      height: 56px !important;
+    }
+    .home-icon-ring {
+      width: 56px !important;
+      height: 56px !important;
+    }
+    .home-icon-pulse {
+      width: 56px !important;
+      height: 56px !important;
+    }
+    .home-measurement-icon svg {
+      width: 24px !important;
+      height: 24px !important;
+    }
+    .home-appointment-card {
+      padding: 12px 14px !important;
+    }
+    .home-progress-steps {
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .home-measurement-card {
+      padding: 14px !important;
+    }
+    .home-measurement-title {
+      font-size: 15px !important;
+    }
+    .home-measurement-card-inner {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+    }
+    .home-measurement-icon {
+      align-self: flex-end !important;
+    }
+
+    .home-appointment-card:hover {
+    border-color: #1A6FD4;
+    box-shadow: 0 4px 16px rgba(26,111,212,0.08);
+  }
+
+  .home-appointment-card:hover .home-appointment-icon-inner {
+    background-color: #1A6FD4;
+  }
+
+  .home-appointment-card:hover .home-appointment-icon-inner svg {
+    color: #FFFFFF !important;
+  }
+
+  .home-appointment-card:hover .home-appointment-arrow {
+    transform: translateX(4px);
+    color: #1A6FD4 !important;
+  }
+
+  @keyframes pulse-dot {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+`;
+document.head.appendChild(styleSheet);
+
+export default Homepage;
