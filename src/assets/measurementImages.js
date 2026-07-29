@@ -11,8 +11,8 @@ const measurementImages = {
   thigh: '/images/measurements/thigh.jpg',
   knee: '/images/measurements/knee.jpg',
   legOpening: '/images/measurements/legOpening.jpg',
-  pantsLength: '/images/measurements/PantsLength.jpg',
-  jacketLength: '/images/measurements/JacketLength.jpg',
+  pantsLength: '/images/measurements/pantsLength.jpg',
+  jacketLength: '/images/measurements/jacketLength.jpg',
   bicep: '/images/measurements/bicep.jpg',
   neck: '/images/measurements/neck.jpg',
 };
