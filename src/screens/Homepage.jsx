@@ -3764,9 +3764,682 @@
 
 // export default Homepage;
 
+// // screens/Homepage.jsx
+// import React from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import {
+//   Ruler,
+//   Grid3x3,
+//   Package,
+//   User,
+//   Heart,
+//   Clock,
+//   ChevronRight,
+//   Calendar,
+//   Bell,
+// } from 'lucide-react';
+
+// import CardGrid from '../components/CardGrid';
+// import FeaturedDesigns from '../components/FeaturedDesigns';
+
+// const Homepage = () => {
+//   const navigate = useNavigate();
+
+//   const stats = {
+//     measurements: 5,
+//   };
+
+//   const upcomingAppointment = {
+//     title: 'You Are Going To The Tailor At this Time',
+//     date: 'Jul 22',
+//     time: '10:00 AM',
+//     status: 'Pending',
+//   };
+
+//   return (
+//     <div style={styles.container}>
+//       {/* Header */}
+//       <header style={styles.header}>
+//         <div style={styles.headerInner}>
+//           <div style={styles.headerLeft}>
+//             <span style={styles.logo}>
+//               Squally<span style={styles.logoAccent}>line</span>
+//             </span>
+//             <span style={styles.tagline}>Measured once. Fitted always.</span>
+//           </div>
+//           <div style={styles.headerRight}>
+//             <button style={styles.iconButton}>
+//               <Bell size={20} color="#5C7A9A" />
+//             </button>
+//             <button
+//               onClick={() => navigate('/profile')}
+//               style={styles.avatarButton}
+//             >
+//               <User size={20} color="#FFFFFF" />
+//             </button>
+//           </div>
+//         </div>
+//       </header>
+
+//       {/* Main Content */}
+//       <main style={styles.main}>
+//         {/* Welcome Section */}
+//         <section style={styles.welcomeSection}>
+//           <h1 style={styles.welcomeTitle}>
+//             Akwaaba, Akosua
+//           </h1>
+//           <p style={styles.welcomeSubtitle}>
+//             Your perfect fit starts here.
+//           </p>
+//         </section>
+
+//         {/* PRIMARY ACTION: Get Measured */}
+//         <div
+//           onClick={() => navigate('/measurements')}
+//           style={styles.measurementCard}
+//           onMouseEnter={(e) => {
+//             e.currentTarget.style.transform = 'translateY(-4px)';
+//             e.currentTarget.style.boxShadow = '0 12px 40px rgba(26,111,212,0.15)';
+//           }}
+//           onMouseLeave={(e) => {
+//             e.currentTarget.style.transform = 'translateY(0)';
+//             e.currentTarget.style.boxShadow = '0 4px 20px rgba(26,111,212,0.08)';
+//           }}
+//           className="home-measurement-card"
+//         >
+//           <div style={styles.measurementCardInner}>
+//             {/* Left Content */}
+//             <div style={styles.measurementCardContent}>
+//               <div style={styles.measurementBadge}>
+//                 <div style={styles.badgeDot} />
+//                 <Ruler size={14} color="#1A6FD4" />
+//                 Get Measured
+//               </div>
+
+//               <h3 style={styles.measurementTitle}>
+//                 Create Your Fit Profile
+//               </h3>
+
+//               <p style={styles.measurementDesc}>
+//                 <span style={styles.measurementProgressText}>
+//                   {stats.measurements} of 8 measurements complete
+//                 </span>
+//               </p>
+
+//               <div style={styles.measurementFooter}>
+//                 <div style={styles.progressWrapper}>
+//                   <div style={styles.progressBar}>
+//                     <div style={{ ...styles.progressFill, width: `${(stats.measurements / 8) * 100}%` }} />
+//                   </div>
+//                   <div style={styles.progressSteps}>
+//                     {[...Array(8)].map((_, i) => (
+//                       <div
+//                         key={i}
+//                         style={{
+//                           ...styles.progressStep,
+//                           ...(i < stats.measurements ? styles.progressStepActive : {}),
+//                         }}
+//                       />
+//                     ))}
+//                   </div>
+//                 </div>
+//                 <span style={styles.measurementCTA}>
+//                   Continue <ChevronRight size={16} style={styles.ctaIcon} className="home-measurement-cta-icon" />
+//                 </span>
+//               </div>
+//             </div>
+
+//             {/* Right Icon */}
+//             <div style={styles.measurementIcon}>
+//               <div style={styles.iconRing} className="home-measurement-icon-ring">
+//                 <div style={styles.iconPulse} />
+//                 <Ruler size={32} color="#1A6FD4" />
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Upcoming Appointment */}
+//         <section style={styles.section}>
+//           <div style={styles.sectionHeader}>
+//             <span style={styles.sectionLabel}>
+//               <Calendar size={16} color="#1A6FD4" />
+//               Upcoming Appointment
+//             </span>
+//             <button
+//               onClick={() => navigate('/bookings')}
+//               style={styles.seeAllButton}
+//             >
+//               View all <ChevronRight size={14} />
+//             </button>
+//           </div>
+
+//           <div
+//             style={styles.appointmentCard}
+//             onClick={() => navigate('/bookings')}
+//             className="home-appointment-card"
+//           >
+//             {/* Left: Icon + Info */}
+//             <div style={styles.appointmentLeft}>
+//               <div style={styles.appointmentIconWrapper}>
+//                 <div style={styles.appointmentIconInner}>
+//                   <Calendar size={22} color="#1A6FD4" />
+//                 </div>
+//                 <div style={styles.appointmentBadgeDot} />
+//               </div>
+//               <div>
+//                 <div style={styles.appointmentTitle}>{upcomingAppointment.title}</div>
+//                 <div style={styles.appointmentDateTime}>
+//                   <Clock size={14} color="#8E8EA0" />
+//                   <span>{upcomingAppointment.date} · {upcomingAppointment.time}</span>
+//                 </div>
+//               </div>
+//             </div>
+
+//             {/* Right: Status + Action */}
+//             <div style={styles.appointmentRight}>
+//               <span style={styles.appointmentStatus}>Pending</span>
+//               <ChevronRight size={18} color="#DCE4EE" style={styles.appointmentArrow} />
+//             </div>
+//           </div>
+//         </section>
+
+//         {/* Categories */}
+//         <section style={styles.section}>
+//           <div style={styles.sectionHeader}>
+//             <span style={styles.sectionLabel}>Categories</span>
+//             <button
+//               onClick={() => navigate('/portfolio')}
+//               style={styles.seeAllButton}
+//             >
+//               See all <ChevronRight size={14} />
+//             </button>
+//           </div>
+//           <CardGrid />
+//         </section>
+
+//         {/* Featured Designs */}
+//         <section style={styles.section}>
+//           <div style={styles.sectionHeader}>
+//             <span style={styles.sectionLabel}>Featured Designs</span>
+//             <button
+//               onClick={() => navigate('/portfolio')}
+//               style={styles.seeAllButton}
+//             >
+//               See all <ChevronRight size={14} />
+//             </button>
+//           </div>
+//           <FeaturedDesigns />
+//         </section>
+//       </main>
+//     </div>
+//   );
+// };
+
+// const styles = {
+// container: {
+//     minHeight: '100vh',
+//     backgroundColor: '#F8F8FA',
+//     fontFamily: 'Inter, -apple-system, sans-serif',
+//     paddingBottom: '80px',
+//   },
+//   main: {
+//     maxWidth: '1200px', 
+//     margin: '0 auto',
+//     padding: '24px 32px',
+//   },
+  
+//   designsRow: {
+//     display: 'grid',
+//     gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', // ← Responsive grid
+//     gap: '16px',
+//   },
+
+  
+//   header: {
+//     backgroundColor: '#FFFFFF',
+//     borderBottom: '1px solid #F1F1F4',
+//     position: 'sticky',
+//     top: 0,
+//     zIndex: 50,
+//     padding: '0 20px',
+//   },
+//   headerInner: {
+//     maxWidth: '1200px',
+//     margin: '0 auto',
+//     display: 'flex',
+//     justifyContent: 'space-between',
+//     alignItems: 'center',
+//     height: '64px',
+//   },
+//   headerLeft: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '12px',
+//   },
+//   logo: {
+//     fontSize: '20px',
+//     fontWeight: '700',
+//     color: '#0A0F1E',
+//     fontFamily: 'Fraunces, serif',
+//   },
+//   logoAccent: {
+//     color: '#1A6FD4',
+//   },
+//   tagline: {
+//     fontSize: '12px',
+//     color: '#8E8EA0',
+//     display: 'none',
+//   },
+//   headerRight: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '8px',
+//   },
+//   iconButton: {
+//     width: '38px',
+//     height: '38px',
+//     borderRadius: '50%',
+//     border: 'none',
+//     background: 'transparent',
+//     cursor: 'pointer',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     transition: 'background 0.2s',
+//   },
+//   avatarButton: {
+//     width: '38px',
+//     height: '38px',
+//     borderRadius: '50%',
+//     border: 'none',
+//     backgroundColor: '#1A6FD4',
+//     cursor: 'pointer',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     transition: 'opacity 0.2s',
+//   },
+ 
+//   welcomeSection: {
+//     marginBottom: '20px',
+//   },
+//   welcomeTitle: {
+//     fontSize: '26px',
+//     fontWeight: '700',
+//     color: '#0A0F1E',
+//     margin: 0,
+//     fontFamily: 'Fraunces, serif',
+//   },
+//   welcomeSubtitle: {
+//     color: '#5C7A9A',
+//     fontSize: '15px',
+//     marginTop: '4px',
+//   },
+//   // Measurement Card Styles
+//   measurementCard: {
+//     backgroundColor: '#FFFFFF',
+//     borderRadius: '16px',
+//     padding: '24px 28px',
+//     border: '1px solid #F1F1F4',
+//     marginBottom: '20px',
+//     cursor: 'pointer',
+//     transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+//     boxShadow: '0 4px 20px rgba(26,111,212,0.06)',
+//     position: 'relative',
+//     overflow: 'hidden',
+//   },
+//   measurementCardInner: {
+//     display: 'flex',
+//     justifyContent: 'space-between',
+//     alignItems: 'center',
+//     gap: '20px',
+//   },
+//   measurementCardContent: {
+//     flex: 1,
+//   },
+//   measurementBadge: {
+//     display: 'inline-flex',
+//     alignItems: 'center',
+//     gap: '8px',
+//     fontSize: '11px',
+//     fontWeight: '600',
+//     color: '#1A6FD4',
+//     textTransform: 'uppercase',
+//     letterSpacing: '0.8px',
+//     backgroundColor: '#E8F4FB',
+//     padding: '4px 14px',
+//     borderRadius: '50px',
+//   },
+//   badgeDot: {
+//     width: '6px',
+//     height: '6px',
+//     borderRadius: '50%',
+//     backgroundColor: '#22C55E',
+//     animation: 'pulse-dot 1.5s ease-in-out infinite',
+//   },
+//   measurementTitle: {
+//     fontSize: '20px',
+//     fontWeight: '700',
+//     color: '#0A0F1E',
+//     marginTop: '12px',
+//     marginBottom: '4px',
+//     fontFamily: 'Fraunces, serif',
+//     letterSpacing: '-0.3px',
+//   },
+//   measurementDesc: {
+//     fontSize: '14px',
+//     color: '#5C7A9A',
+//     marginBottom: '16px',
+//   },
+//   measurementProgressText: {
+//     fontWeight: '500',
+//   },
+//   measurementFooter: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'space-between',
+//     gap: '16px',
+//   },
+//   progressWrapper: {
+//     flex: 1,
+//     display: 'flex',
+//     flexDirection: 'column',
+//     gap: '6px',
+//   },
+//   progressBar: {
+//     width: '100%',
+//     height: '6px',
+//     backgroundColor: '#F1F1F4',
+//     borderRadius: '6px',
+//     overflow: 'hidden',
+//   },
+//   progressFill: {
+//     height: '100%',
+//     backgroundColor: '#1A6FD4',
+//     borderRadius: '6px',
+//     transition: 'width 0.6s ease',
+//   },
+//   progressSteps: {
+//     display: 'flex',
+//     gap: '4px',
+//   },
+//   progressStep: {
+//     width: '100%',
+//     height: '3px',
+//     borderRadius: '3px',
+//     backgroundColor: '#F1F1F4',
+//     transition: 'background-color 0.3s ease',
+//   },
+//   progressStepActive: {
+//     backgroundColor: '#1A6FD4',
+//   },
+//   measurementCTA: {
+//     fontSize: '13px',
+//     fontWeight: '600',
+//     color: '#1A6FD4',
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '4px',
+//     whiteSpace: 'nowrap',
+//     transition: 'transform 0.2s ease',
+//   },
+//   ctaIcon: {
+//     transition: 'transform 0.2s ease',
+//   },
+//   measurementIcon: {
+//     width: '72px',
+//     height: '72px',
+//     borderRadius: '50%',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     flexShrink: 0,
+//     position: 'relative',
+//   },
+//   iconRing: {
+//     width: '72px',
+//     height: '72px',
+//     borderRadius: '50%',
+//     backgroundColor: '#E8F4FB',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     position: 'relative',
+//     transition: 'transform 0.3s ease',
+//   },
+//   iconPulse: {
+//     position: 'absolute',
+//     width: '72px',
+//     height: '72px',
+//     borderRadius: '50%',
+//     border: '2px solid rgba(26,111,212,0.15)',
+//     animation: 'pulse-ring 2s ease-in-out infinite',
+//   },
+//   // Section Styles
+//   section: {
+//     marginBottom: '24px',
+//   },
+//   sectionHeader: {
+//     display: 'flex',
+//     justifyContent: 'space-between',
+//     alignItems: 'center',
+//     marginBottom: '12px',
+//   },
+//   sectionLabel: {
+//     fontSize: '14px',
+//     fontWeight: '600',
+//     color: '#0A0F1E',
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '6px',
+//   },
+//   seeAllButton: {
+//     fontSize: '13px',
+//     fontWeight: '500',
+//     color: '#1A6FD4',
+//     border: 'none',
+//     background: 'none',
+//     cursor: 'pointer',
+//     display: 'flex',
+//     alignItems: 'center',
+//     gap: '2px',
+//     fontFamily: 'Inter, sans-serif',
+//   },
+//   // Appointment Styles
+  
+//  // Replace existing appointment styles with these
+// appointmentCard: {
+//   backgroundColor: '#FFFFFF',
+//   borderRadius: '14px',
+//   padding: '16px 20px',
+//   border: '1px solid #F1F1F4',
+//   display: 'flex',
+//   justifyContent: 'space-between',
+//   alignItems: 'center',
+//   cursor: 'pointer',
+//   transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+//   boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+//   position: 'relative',
+//   overflow: 'hidden',
+// },
+// appointmentLeft: {
+//   display: 'flex',
+//   alignItems: 'center',
+//   gap: '14px',
+//   flex: 1,
+// },
+// appointmentIconWrapper: {
+//   position: 'relative',
+//   width: '44px',
+//   height: '44px',
+//   flexShrink: 0,
+// },
+// appointmentIconInner: {
+//   width: '44px',
+//   height: '44px',
+//   borderRadius: '12px',
+//   backgroundColor: '#E8F4FB',
+//   display: 'flex',
+//   alignItems: 'center',
+//   justifyContent: 'center',
+//   transition: 'all 0.3s ease',
+// },
+// appointmentBadgeDot: {
+//   position: 'absolute',
+//   top: '-2px',
+//   right: '-2px',
+//   width: '10px',
+//   height: '10px',
+//   borderRadius: '50%',
+//   backgroundColor: '#22C55E',
+//   border: '2px solid #FFFFFF',
+//   animation: 'pulse-dot 1.5s ease-in-out infinite',
+// },
+// appointmentTitle: {
+//   fontSize: '15px',
+//   fontWeight: '600',
+//   color: '#0A0F1E',
+//   marginBottom: '2px',
+// },
+// appointmentDateTime: {
+//   fontSize: '13px',
+//   color: '#8E8EA0',
+//   display: 'flex',
+//   alignItems: 'center',
+//   gap: '6px',
+// },
+// appointmentRight: {
+//   display: 'flex',
+//   alignItems: 'center',
+//   gap: '12px',
+//   flexShrink: 0,
+// },
+// appointmentStatus: {
+//   padding: '4px 14px',
+//   backgroundColor: '#FEF3C7',
+//   color: '#F59E0B',
+//   fontSize: '11px',
+//   fontWeight: '600',
+//   borderRadius: '50px',
+//   whiteSpace: 'nowrap',
+// },
+// appointmentArrow: {
+//   transition: 'transform 0.3s ease',
+// },
+// };
+
+// // Add animations
+// const styleSheet = document.createElement("style");
+// styleSheet.textContent = `
+//   @keyframes pulse-dot {
+//     0% { opacity: 1; transform: scale(1); }
+//     50% { opacity: 0.5; transform: scale(0.8); }
+//     100% { opacity: 1; transform: scale(1); }
+//   }
+
+//   @keyframes pulse-ring {
+//     0% { transform: scale(1); opacity: 1; }
+//     50% { transform: scale(1.15); opacity: 0.5; }
+//     100% { transform: scale(1); opacity: 1; }
+//   }
+
+//   .home-measurement-card:hover .home-measurement-cta-icon {
+//     transform: translateX(4px);
+//   }
+
+//   .home-measurement-card:hover .home-measurement-icon-ring {
+//     transform: scale(1.05);
+//   }
+
+//   @media (min-width: 768px) {
+//     .home-tagline {
+//       display: inline-block !important;
+//     }
+//   }
+
+//   @media (max-width: 480px) {
+//     .home-welcome-title {
+//       font-size: 22px !important;
+//     }
+//     .home-measurement-card {
+//       padding: 16px 18px !important;
+//     }
+//     .home-measurement-title {
+//       font-size: 17px !important;
+//     }
+//     .home-measurement-icon {
+//       width: 56px !important;
+//       height: 56px !important;
+//     }
+//     .home-icon-ring {
+//       width: 56px !important;
+//       height: 56px !important;
+//     }
+//     .home-icon-pulse {
+//       width: 56px !important;
+//       height: 56px !important;
+//     }
+//     .home-measurement-icon svg {
+//       width: 24px !important;
+//       height: 24px !important;
+//     }
+//     .home-appointment-card {
+//       padding: 12px 14px !important;
+//     }
+//     .home-progress-steps {
+//       display: none !important;
+//     }
+//   }
+
+//   @media (max-width: 360px) {
+//     .home-measurement-card {
+//       padding: 14px !important;
+//     }
+//     .home-measurement-title {
+//       font-size: 15px !important;
+//     }
+//     .home-measurement-card-inner {
+//       flex-direction: column !important;
+//       align-items: flex-start !important;
+//     }
+//     .home-measurement-icon {
+//       align-self: flex-end !important;
+//     }
+
+//     .home-appointment-card:hover {
+//     border-color: #1A6FD4;
+//     box-shadow: 0 4px 16px rgba(26,111,212,0.08);
+//   }
+
+//   .home-appointment-card:hover .home-appointment-icon-inner {
+//     background-color: #1A6FD4;
+//   }
+
+//   .home-appointment-card:hover .home-appointment-icon-inner svg {
+//     color: #FFFFFF !important;
+//   }
+
+//   .home-appointment-card:hover .home-appointment-arrow {
+//     transform: translateX(4px);
+//     color: #1A6FD4 !important;
+//   }
+
+//   @keyframes pulse-dot {
+//     0% { opacity: 1; transform: scale(1); }
+//     50% { opacity: 0.5; transform: scale(0.8); }
+//     100% { opacity: 1; transform: scale(1); }
+//   }
+// `;
+// document.head.appendChild(styleSheet);
+
+// export default Homepage;
+
+
 // screens/Homepage.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from '../contexts/themeContext';
 import {
   Ruler,
   Grid3x3,
@@ -3784,36 +4457,41 @@ import FeaturedDesigns from '../components/FeaturedDesigns';
 
 const Homepage = () => {
   const navigate = useNavigate();
+  const { colors } = useTheme();
 
-  const stats = {
-    measurements: 5,
-  };
-
+  const stats = { measurements: 5 };
   const upcomingAppointment = {
-    title: 'You Are Going To The Tailor At this Time',
+    title: 'Fitting Session',
     date: 'Jul 22',
     time: '10:00 AM',
     status: 'Pending',
   };
 
   return (
-    <div style={styles.container}>
+    <div style={{
+      ...styles.container,
+      backgroundColor: colors.mainBg,
+    }}>
       {/* Header */}
-      <header style={styles.header}>
+      <header style={{
+        ...styles.header,
+        backgroundColor: colors.cardBg,
+        borderBottomColor: colors.border,
+      }}>
         <div style={styles.headerInner}>
           <div style={styles.headerLeft}>
             <span style={styles.logo}>
-              Squally<span style={styles.logoAccent}>line</span>
+              Squally<span style={{ ...styles.logoAccent, color: colors.primary }}>line</span>
             </span>
             <span style={styles.tagline}>Measured once. Fitted always.</span>
           </div>
           <div style={styles.headerRight}>
             <button style={styles.iconButton}>
-              <Bell size={20} color="#5C7A9A" />
+              <Bell size={20} color={colors.secondaryText} />
             </button>
-            <button
+            <button 
               onClick={() => navigate('/profile')}
-              style={styles.avatarButton}
+              style={{ ...styles.avatarButton, backgroundColor: colors.primary }}
             >
               <User size={20} color="#FFFFFF" />
             </button>
@@ -3825,51 +4503,44 @@ const Homepage = () => {
       <main style={styles.main}>
         {/* Welcome Section */}
         <section style={styles.welcomeSection}>
-          <h1 style={styles.welcomeTitle}>
-            Akwaaba, Akosua
+          <h1 style={{ ...styles.welcomeTitle, color: colors.heading }}>
+            Akwaaba, Akosua 👋
           </h1>
-          <p style={styles.welcomeSubtitle}>
+          <p style={{ ...styles.welcomeSubtitle, color: colors.secondaryText }}>
             Your perfect fit starts here.
           </p>
         </section>
 
-        {/* PRIMARY ACTION: Get Measured */}
-        <div
+        {/* Measurement Card */}
+        <div 
           onClick={() => navigate('/measurements')}
-          style={styles.measurementCard}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-4px)';
-            e.currentTarget.style.boxShadow = '0 12px 40px rgba(26,111,212,0.15)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 4px 20px rgba(26,111,212,0.08)';
+          style={{
+            ...styles.measurementCard,
+            backgroundColor: colors.cardBg,
+            borderColor: colors.border,
           }}
           className="home-measurement-card"
         >
           <div style={styles.measurementCardInner}>
-            {/* Left Content */}
             <div style={styles.measurementCardContent}>
-              <div style={styles.measurementBadge}>
-                <div style={styles.badgeDot} />
-                <Ruler size={14} color="#1A6FD4" />
+              <div style={{ ...styles.measurementBadge, backgroundColor: colors.primaryLight, color: colors.primary }}>
+                <div style={{ ...styles.badgeDot, backgroundColor: colors.success }} />
+                <Ruler size={14} color={colors.primary} />
                 Get Measured
               </div>
-
-              <h3 style={styles.measurementTitle}>
+              
+              <h3 style={{ ...styles.measurementTitle, color: colors.heading }}>
                 Create Your Fit Profile
               </h3>
-
-              <p style={styles.measurementDesc}>
-                <span style={styles.measurementProgressText}>
-                  {stats.measurements} of 8 measurements complete
-                </span>
+              
+              <p style={{ ...styles.measurementDesc, color: colors.secondaryText }}>
+                {stats.measurements} of 8 measurements complete
               </p>
-
+              
               <div style={styles.measurementFooter}>
                 <div style={styles.progressWrapper}>
-                  <div style={styles.progressBar}>
-                    <div style={{ ...styles.progressFill, width: `${(stats.measurements / 8) * 100}%` }} />
+                  <div style={{ ...styles.progressBar, backgroundColor: colors.progressBg }}>
+                    <div style={{ ...styles.progressFill, backgroundColor: colors.primary, width: `${(stats.measurements / 8) * 100}%` }} />
                   </div>
                   <div style={styles.progressSteps}>
                     {[...Array(8)].map((_, i) => (
@@ -3877,80 +4548,68 @@ const Homepage = () => {
                         key={i}
                         style={{
                           ...styles.progressStep,
-                          ...(i < stats.measurements ? styles.progressStepActive : {}),
+                          backgroundColor: i < stats.measurements ? colors.primary : colors.progressBg,
                         }}
                       />
                     ))}
                   </div>
                 </div>
-                <span style={styles.measurementCTA}>
-                  Continue <ChevronRight size={16} style={styles.ctaIcon} className="home-measurement-cta-icon" />
+                <span style={{ ...styles.measurementCTA, color: colors.primary }}>
+                  Continue <ChevronRight size={16} style={styles.ctaIcon} />
                 </span>
               </div>
             </div>
 
-            {/* Right Icon */}
-            <div style={styles.measurementIcon}>
-              <div style={styles.iconRing} className="home-measurement-icon-ring">
+            <div style={{ ...styles.measurementIcon, backgroundColor: colors.primaryLight }}>
+              <div style={styles.iconRing}>
                 <div style={styles.iconPulse} />
-                <Ruler size={32} color="#1A6FD4" />
+                <Ruler size={32} color={colors.primary} />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Upcoming Appointment */}
+        {/* Appointment */}
         <section style={styles.section}>
           <div style={styles.sectionHeader}>
-            <span style={styles.sectionLabel}>
-              <Calendar size={16} color="#1A6FD4" />
+            <span style={{ ...styles.sectionLabel, color: colors.heading }}>
+              <Calendar size={16} color={colors.primary} />
               Upcoming Appointment
             </span>
-            <button
-              onClick={() => navigate('/bookings')}
-              style={styles.seeAllButton}
-            >
-              View all <ChevronRight size={14} />
-            </button>
           </div>
-
-          <div
-            style={styles.appointmentCard}
+          <div 
+            style={{
+              ...styles.appointmentCard,
+              backgroundColor: colors.cardBg,
+              borderColor: colors.border,
+            }}
             onClick={() => navigate('/bookings')}
-            className="home-appointment-card"
           >
-            {/* Left: Icon + Info */}
             <div style={styles.appointmentLeft}>
-              <div style={styles.appointmentIconWrapper}>
-                <div style={styles.appointmentIconInner}>
-                  <Calendar size={22} color="#1A6FD4" />
-                </div>
-                <div style={styles.appointmentBadgeDot} />
-              </div>
+              <div style={styles.appointmentIcon}>📅</div>
               <div>
-                <div style={styles.appointmentTitle}>{upcomingAppointment.title}</div>
-                <div style={styles.appointmentDateTime}>
-                  <Clock size={14} color="#8E8EA0" />
-                  <span>{upcomingAppointment.date} · {upcomingAppointment.time}</span>
+                <div style={{ ...styles.appointmentTitle, color: colors.heading }}>
+                  {upcomingAppointment.title}
+                </div>
+                <div style={{ ...styles.appointmentDateTime, color: colors.secondaryText }}>
+                  <Clock size={14} color={colors.secondaryText} />
+                  {upcomingAppointment.date} · {upcomingAppointment.time}
                 </div>
               </div>
             </div>
-
-            {/* Right: Status + Action */}
-            <div style={styles.appointmentRight}>
-              <span style={styles.appointmentStatus}>Pending</span>
-              <ChevronRight size={18} color="#DCE4EE" style={styles.appointmentArrow} />
-            </div>
+            <span style={{ ...styles.appointmentStatus, backgroundColor: colors.warningBg, color: colors.warning }}>
+              Pending
+            </span>
           </div>
         </section>
 
         {/* Categories */}
         <section style={styles.section}>
           <div style={styles.sectionHeader}>
-            <span style={styles.sectionLabel}>Categories</span>
-            <button
+            <span style={{ ...styles.sectionLabel, color: colors.heading }}>Categories</span>
+            <button 
               onClick={() => navigate('/portfolio')}
-              style={styles.seeAllButton}
+              style={{ ...styles.seeAllButton, color: colors.primary }}
             >
               See all <ChevronRight size={14} />
             </button>
@@ -3961,10 +4620,10 @@ const Homepage = () => {
         {/* Featured Designs */}
         <section style={styles.section}>
           <div style={styles.sectionHeader}>
-            <span style={styles.sectionLabel}>Featured Designs</span>
-            <button
+            <span style={{ ...styles.sectionLabel, color: colors.heading }}>Featured Designs</span>
+            <button 
               onClick={() => navigate('/portfolio')}
-              style={styles.seeAllButton}
+              style={{ ...styles.seeAllButton, color: colors.primary }}
             >
               See all <ChevronRight size={14} />
             </button>
@@ -3979,13 +4638,10 @@ const Homepage = () => {
 const styles = {
   container: {
     minHeight: '100vh',
-    backgroundColor: '#F8F8FA',
-    fontFamily: 'Inter, -apple-system, sans-serif',
     paddingBottom: '80px',
   },
   header: {
-    backgroundColor: '#FFFFFF',
-    borderBottom: '1px solid #F1F1F4',
+    borderBottom: '1px solid',
     position: 'sticky',
     top: 0,
     zIndex: 50,
@@ -4007,15 +4663,14 @@ const styles = {
   logo: {
     fontSize: '20px',
     fontWeight: '700',
-    color: '#0A0F1E',
     fontFamily: 'Fraunces, serif',
   },
   logoAccent: {
-    color: '#1A6FD4',
+    color: '#1A56DB',
   },
   tagline: {
     fontSize: '12px',
-    color: '#8E8EA0',
+    color: '#94A3B8',
     display: 'none',
   },
   headerRight: {
@@ -4033,24 +4688,21 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    transition: 'background 0.2s',
   },
   avatarButton: {
     width: '38px',
     height: '38px',
     borderRadius: '50%',
     border: 'none',
-    backgroundColor: '#1A6FD4',
     cursor: 'pointer',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    transition: 'opacity 0.2s',
   },
   main: {
-    maxWidth: '540px',
+    maxWidth: '1200px',
     margin: '0 auto',
-    padding: '20px 20px 40px',
+    padding: '24px 32px',
   },
   welcomeSection: {
     marginBottom: '20px',
@@ -4058,27 +4710,21 @@ const styles = {
   welcomeTitle: {
     fontSize: '26px',
     fontWeight: '700',
-    color: '#0A0F1E',
     margin: 0,
     fontFamily: 'Fraunces, serif',
   },
   welcomeSubtitle: {
-    color: '#5C7A9A',
     fontSize: '15px',
     marginTop: '4px',
   },
-  // Measurement Card Styles
   measurementCard: {
-    backgroundColor: '#FFFFFF',
     borderRadius: '16px',
     padding: '24px 28px',
-    border: '1px solid #F1F1F4',
+    border: '1px solid',
     marginBottom: '20px',
     cursor: 'pointer',
-    transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-    boxShadow: '0 4px 20px rgba(26,111,212,0.06)',
-    position: 'relative',
-    overflow: 'hidden',
+    transition: 'all 0.4s',
+    boxShadow: '0 4px 20px rgba(26, 86, 219, 0.06)',
   },
   measurementCardInner: {
     display: 'flex',
@@ -4095,10 +4741,8 @@ const styles = {
     gap: '8px',
     fontSize: '11px',
     fontWeight: '600',
-    color: '#1A6FD4',
     textTransform: 'uppercase',
     letterSpacing: '0.8px',
-    backgroundColor: '#E8F4FB',
     padding: '4px 14px',
     borderRadius: '50px',
   },
@@ -4106,13 +4750,11 @@ const styles = {
     width: '6px',
     height: '6px',
     borderRadius: '50%',
-    backgroundColor: '#22C55E',
     animation: 'pulse-dot 1.5s ease-in-out infinite',
   },
   measurementTitle: {
     fontSize: '20px',
     fontWeight: '700',
-    color: '#0A0F1E',
     marginTop: '12px',
     marginBottom: '4px',
     fontFamily: 'Fraunces, serif',
@@ -4120,11 +4762,7 @@ const styles = {
   },
   measurementDesc: {
     fontSize: '14px',
-    color: '#5C7A9A',
     marginBottom: '16px',
-  },
-  measurementProgressText: {
-    fontWeight: '500',
   },
   measurementFooter: {
     display: 'flex',
@@ -4141,13 +4779,11 @@ const styles = {
   progressBar: {
     width: '100%',
     height: '6px',
-    backgroundColor: '#F1F1F4',
     borderRadius: '6px',
     overflow: 'hidden',
   },
   progressFill: {
     height: '100%',
-    backgroundColor: '#1A6FD4',
     borderRadius: '6px',
     transition: 'width 0.6s ease',
   },
@@ -4159,21 +4795,15 @@ const styles = {
     width: '100%',
     height: '3px',
     borderRadius: '3px',
-    backgroundColor: '#F1F1F4',
     transition: 'background-color 0.3s ease',
-  },
-  progressStepActive: {
-    backgroundColor: '#1A6FD4',
   },
   measurementCTA: {
     fontSize: '13px',
     fontWeight: '600',
-    color: '#1A6FD4',
     display: 'flex',
     alignItems: 'center',
     gap: '4px',
     whiteSpace: 'nowrap',
-    transition: 'transform 0.2s ease',
   },
   ctaIcon: {
     transition: 'transform 0.2s ease',
@@ -4192,7 +4822,6 @@ const styles = {
     width: '72px',
     height: '72px',
     borderRadius: '50%',
-    backgroundColor: '#E8F4FB',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -4204,10 +4833,9 @@ const styles = {
     width: '72px',
     height: '72px',
     borderRadius: '50%',
-    border: '2px solid rgba(26,111,212,0.15)',
+    border: '2px solid rgba(26, 86, 219, 0.15)',
     animation: 'pulse-ring 2s ease-in-out infinite',
   },
-  // Section Styles
   section: {
     marginBottom: '24px',
   },
@@ -4220,7 +4848,6 @@ const styles = {
   sectionLabel: {
     fontSize: '14px',
     fontWeight: '600',
-    color: '#0A0F1E',
     display: 'flex',
     alignItems: 'center',
     gap: '6px',
@@ -4228,7 +4855,6 @@ const styles = {
   seeAllButton: {
     fontSize: '13px',
     fontWeight: '500',
-    color: '#1A6FD4',
     border: 'none',
     background: 'none',
     cursor: 'pointer',
@@ -4237,87 +4863,41 @@ const styles = {
     gap: '2px',
     fontFamily: 'Inter, sans-serif',
   },
-  // Appointment Styles
-  
- // Replace existing appointment styles with these
-appointmentCard: {
-  backgroundColor: '#FFFFFF',
-  borderRadius: '14px',
-  padding: '16px 20px',
-  border: '1px solid #F1F1F4',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  cursor: 'pointer',
-  transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-  boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
-  position: 'relative',
-  overflow: 'hidden',
-},
-appointmentLeft: {
-  display: 'flex',
-  alignItems: 'center',
-  gap: '14px',
-  flex: 1,
-},
-appointmentIconWrapper: {
-  position: 'relative',
-  width: '44px',
-  height: '44px',
-  flexShrink: 0,
-},
-appointmentIconInner: {
-  width: '44px',
-  height: '44px',
-  borderRadius: '12px',
-  backgroundColor: '#E8F4FB',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  transition: 'all 0.3s ease',
-},
-appointmentBadgeDot: {
-  position: 'absolute',
-  top: '-2px',
-  right: '-2px',
-  width: '10px',
-  height: '10px',
-  borderRadius: '50%',
-  backgroundColor: '#22C55E',
-  border: '2px solid #FFFFFF',
-  animation: 'pulse-dot 1.5s ease-in-out infinite',
-},
-appointmentTitle: {
-  fontSize: '15px',
-  fontWeight: '600',
-  color: '#0A0F1E',
-  marginBottom: '2px',
-},
-appointmentDateTime: {
-  fontSize: '13px',
-  color: '#8E8EA0',
-  display: 'flex',
-  alignItems: 'center',
-  gap: '6px',
-},
-appointmentRight: {
-  display: 'flex',
-  alignItems: 'center',
-  gap: '12px',
-  flexShrink: 0,
-},
-appointmentStatus: {
-  padding: '4px 14px',
-  backgroundColor: '#FEF3C7',
-  color: '#F59E0B',
-  fontSize: '11px',
-  fontWeight: '600',
-  borderRadius: '50px',
-  whiteSpace: 'nowrap',
-},
-appointmentArrow: {
-  transition: 'transform 0.3s ease',
-},
+  appointmentCard: {
+    borderRadius: '12px',
+    padding: '16px',
+    border: '1px solid',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    cursor: 'pointer',
+    transition: 'box-shadow 0.2s',
+  },
+  appointmentLeft: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+  },
+  appointmentIcon: {
+    fontSize: '24px',
+  },
+  appointmentTitle: {
+    fontSize: '15px',
+    fontWeight: '600',
+  },
+  appointmentDateTime: {
+    fontSize: '13px',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '6px',
+    marginTop: '2px',
+  },
+  appointmentStatus: {
+    padding: '4px 14px',
+    fontSize: '11px',
+    fontWeight: '600',
+    borderRadius: '50px',
+  },
 };
 
 // Add animations
@@ -4371,15 +4951,11 @@ styleSheet.textContent = `
       width: 56px !important;
       height: 56px !important;
     }
-    .home-measurement-icon svg {
-      width: 24px !important;
-      height: 24px !important;
+    .home-progress-steps {
+      display: none !important;
     }
     .home-appointment-card {
       padding: 12px 14px !important;
-    }
-    .home-progress-steps {
-      display: none !important;
     }
   }
 
@@ -4397,29 +4973,6 @@ styleSheet.textContent = `
     .home-measurement-icon {
       align-self: flex-end !important;
     }
-
-    .home-appointment-card:hover {
-    border-color: #1A6FD4;
-    box-shadow: 0 4px 16px rgba(26,111,212,0.08);
-  }
-
-  .home-appointment-card:hover .home-appointment-icon-inner {
-    background-color: #1A6FD4;
-  }
-
-  .home-appointment-card:hover .home-appointment-icon-inner svg {
-    color: #FFFFFF !important;
-  }
-
-  .home-appointment-card:hover .home-appointment-arrow {
-    transform: translateX(4px);
-    color: #1A6FD4 !important;
-  }
-
-  @keyframes pulse-dot {
-    0% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
-    100% { opacity: 1; transform: scale(1); }
   }
 `;
 document.head.appendChild(styleSheet);

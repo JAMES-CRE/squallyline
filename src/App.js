@@ -322,14 +322,110 @@
 
 // export default App;
 
+// // App.js
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import { MockAuthProvider } from './providers/MockAuthProvider';
+// import { ToastProvider } from './providers/ToastProvider';
+// import { useLocation } from 'react-router-dom';
+// import './App.css';
+
+// import Profile from './screens/Profile';
+// import BottomNav from './components/BottomNav';
+// import RegisterPage from './screens/Register';
+// import Login from './screens/Login';
+// import SplashScreen from './screens/SplashScreen';
+// import Bookings from './screens/Bookings';
+// import Home from './screens/Homepage';
+// import DesignDetails from './screens/DesignDetails';
+// import Measurements from './screens/Measurements';
+// import Portfolio from './screens/Portfolio';
+// import PlaceOrder from './screens/PlaceOrder';
+// import TailorAppointments from './screens/TailorAppointments';
+// import TailorDashboard from './screens/TailorDashboard';
+// import TailorLogin from './screens/TailorLogin';
+// import TailorOrders from './screens/TailorOrders';
+// import TailorUpload from './screens/TailorUpload';
+// import OrderTracking from './screens/OrderTracking';
+
+// // Simple ProtectedRoute that always returns children for testing
+// const ProtectedRoute = ({ children }) => {
+//   return children;
+// };
+
+// const AppLayout = ({ children }) => {
+//   const location = useLocation();
+  
+//   const noBottomNavPaths = [
+//     '/',
+//     '/login',
+//     '/register',
+//     '/tailor/login',
+//     '/tailor/dashboard',
+//     '/tailor/appointments',
+//     '/tailor/orders',
+//     '/tailor/upload',
+//   ];
+  
+//   const shouldShowBottomNav = !noBottomNavPaths.includes(location.pathname);
+
+//   return (
+//     <>
+//       {children}
+//       {shouldShowBottomNav && <BottomNav />}
+//     </>
+//   );
+// };
+
+// function App() {
+//   return (
+//     <BrowserRouter>
+//       <MockAuthProvider>
+//         <ToastProvider>
+//           <AppLayout>
+//             <Routes>
+//               {/* Public Routes */}
+//               <Route path="/" element={<SplashScreen />} />
+//               <Route path="/login" element={<Login />} />
+//               <Route path="/register" element={<RegisterPage />} />
+//               <Route path="/tailor/login" element={<TailorLogin />} />
+              
+//               {/* Customer Routes */}
+//               <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+//               <Route path="/bookings" element={<ProtectedRoute><Bookings /></ProtectedRoute>} />
+//               <Route path="/designs/:id" element={<ProtectedRoute><DesignDetails /></ProtectedRoute>} />
+//               <Route path="/measurements" element={<ProtectedRoute><Measurements /></ProtectedRoute>} />
+//               <Route path="/placeorder" element={<ProtectedRoute><PlaceOrder /></ProtectedRoute>} />
+//               <Route path="/portfolio" element={<ProtectedRoute><Portfolio /></ProtectedRoute>} />
+//               <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+//               <Route path="/tracking" element={<ProtectedRoute><OrderTracking /></ProtectedRoute>} />
+              
+//               {/* Tailor Routes */}
+//               <Route path="/tailor/dashboard" element={<ProtectedRoute><TailorDashboard /></ProtectedRoute>} />
+//               <Route path="/tailor/appointments" element={<ProtectedRoute><TailorAppointments /></ProtectedRoute>} />
+//               <Route path="/tailor/orders" element={<ProtectedRoute><TailorOrders /></ProtectedRoute>} />
+//               <Route path="/tailor/upload" element={<ProtectedRoute><TailorUpload /></ProtectedRoute>} />
+
+//             </Routes>
+//           </AppLayout>
+//         </ToastProvider>
+//       </MockAuthProvider>
+//     </BrowserRouter>
+//   );
+// }
+
+// export default App;
+
+
 // App.js
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './contexts/themeContext'; // ← ADD THIS
 import { MockAuthProvider } from './providers/MockAuthProvider';
 import { ToastProvider } from './providers/ToastProvider';
 import { useLocation } from 'react-router-dom';
 import './App.css';
 
 import Profile from './screens/Profile';
+import EditProfile from './screens/EditProfile';
 import BottomNav from './components/BottomNav';
 import RegisterPage from './screens/Register';
 import Login from './screens/Login';
@@ -346,6 +442,9 @@ import TailorLogin from './screens/TailorLogin';
 import TailorOrders from './screens/TailorOrders';
 import TailorUpload from './screens/TailorUpload';
 import OrderTracking from './screens/OrderTracking';
+import FavoriteDesigns from './screens/FavoriteDesigns';
+import OrderHistory from './screens/OrderHistory';
+
 
 // Simple ProtectedRoute that always returns children for testing
 const ProtectedRoute = ({ children }) => {
@@ -379,35 +478,41 @@ const AppLayout = ({ children }) => {
 function App() {
   return (
     <BrowserRouter>
-      <MockAuthProvider>
-        <ToastProvider>
-          <AppLayout>
-            <Routes>
-              {/* Public Routes */}
-              <Route path="/" element={<SplashScreen />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<RegisterPage />} />
-              <Route path="/tailor/login" element={<TailorLogin />} />
-              
-              {/* Customer Routes */}
-              <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-              <Route path="/bookings" element={<ProtectedRoute><Bookings /></ProtectedRoute>} />
-              <Route path="/designs/:id" element={<ProtectedRoute><DesignDetails /></ProtectedRoute>} />
-              <Route path="/measurements" element={<ProtectedRoute><Measurements /></ProtectedRoute>} />
-              <Route path="/placeorder" element={<ProtectedRoute><PlaceOrder /></ProtectedRoute>} />
-              <Route path="/portfolio" element={<ProtectedRoute><Portfolio /></ProtectedRoute>} />
-              <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-              <Route path="/tracking" element={<ProtectedRoute><OrderTracking /></ProtectedRoute>} />
-              
-              {/* Tailor Routes */}
-              <Route path="/tailor/dashboard" element={<ProtectedRoute><TailorDashboard /></ProtectedRoute>} />
-              <Route path="/tailor/appointments" element={<ProtectedRoute><TailorAppointments /></ProtectedRoute>} />
-              <Route path="/tailor/orders" element={<ProtectedRoute><TailorOrders /></ProtectedRoute>} />
-              <Route path="/tailor/upload" element={<ProtectedRoute><TailorUpload /></ProtectedRoute>} />
-            </Routes>
-          </AppLayout>
-        </ToastProvider>
-      </MockAuthProvider>
+      {/* ← ThemeProvider MUST wrap everything */}
+      <ThemeProvider>
+        <MockAuthProvider>
+          <ToastProvider>
+            <AppLayout>
+              <Routes>
+                {/* Public Routes */}
+                <Route path="/" element={<SplashScreen />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<RegisterPage />} />
+                <Route path="/tailor/login" element={<TailorLogin />} />
+                
+                {/* Customer Routes */}
+                <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+                <Route path="/bookings" element={<ProtectedRoute><Bookings /></ProtectedRoute>} />
+                <Route path="/designs/:id" element={<ProtectedRoute><DesignDetails /></ProtectedRoute>} />
+                <Route path="/measurements" element={<ProtectedRoute><Measurements /></ProtectedRoute>} />
+                <Route path="/placeorder" element={<ProtectedRoute><PlaceOrder /></ProtectedRoute>} />
+                <Route path="/portfolio" element={<ProtectedRoute><Portfolio /></ProtectedRoute>} />
+                <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+                <Route path="/tracking" element={<ProtectedRoute><OrderTracking /></ProtectedRoute>} />
+                
+                {/* Tailor Routes */}
+                <Route path="/tailor/dashboard" element={<ProtectedRoute><TailorDashboard /></ProtectedRoute>} />
+                <Route path="/tailor/appointments" element={<ProtectedRoute><TailorAppointments /></ProtectedRoute>} />
+                <Route path="/tailor/orders" element={<ProtectedRoute><TailorOrders /></ProtectedRoute>} />
+                <Route path="/tailor/upload" element={<ProtectedRoute><TailorUpload /></ProtectedRoute>} />
+                <Route path="/edit-profile" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
+                <Route path="/favorites" element={<ProtectedRoute><FavoriteDesigns /></ProtectedRoute>} />
+                <Route path="/orders" element={<ProtectedRoute><OrderHistory /></ProtectedRoute>} />
+              </Routes>
+            </AppLayout>
+          </ToastProvider>
+        </MockAuthProvider>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }

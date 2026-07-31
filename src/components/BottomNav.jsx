@@ -1,55 +1,27 @@
 // components/BottomNav.jsx
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTheme } from '../contexts/themeContext';
 import {
   Home,
   Ruler,
   Grid3x3,
   Package,
   User,
-  Calendar, // ← Add this import
+  Calendar,
 } from 'lucide-react';
 
 const BottomNav = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { colors } = useTheme();
 
   const navItems = [
-    {
-      id: 'home',
-      icon: Home,
-      label: 'Home',
-      path: '/home',
-      activePaths: ['/home']
-    },
-    {
-      id: 'measure',
-      icon: Ruler,
-      label: 'Measure',
-      path: '/measurements',
-      activePaths: ['/measurements']
-    },
-    {
-      id: 'portfolio',
-      icon: Grid3x3,
-      label: 'Portfolio',
-      path: '/portfolio',
-      activePaths: ['/portfolio', '/designs']
-    },
-    {
-      id: 'bookings', // ← Changed from 'orders' to 'bookings'
-      icon: Calendar,
-      label: 'Book',
-      path: '/bookings',
-      activePaths: ['/bookings']
-    },
-    {
-      id: 'profile',
-      icon: User,
-      label: 'Profile',
-      path: '/profile',
-      activePaths: ['/profile']
-    },
+    { id: 'home', icon: Home, label: 'Home', path: '/home', activePaths: ['/home'] },
+    { id: 'measure', icon: Ruler, label: 'Measure', path: '/measurements', activePaths: ['/measurements'] },
+    { id: 'portfolio', icon: Grid3x3, label: 'Portfolio', path: '/portfolio', activePaths: ['/portfolio', '/designs'] },
+    { id: 'bookings', icon: Calendar, label: 'Book', path: '/bookings', activePaths: ['/bookings'] },
+    { id: 'profile', icon: User, label: 'Profile', path: '/profile', activePaths: ['/profile'] },
   ];
 
   const isActive = (item) => {
@@ -61,7 +33,11 @@ const BottomNav = () => {
   };
 
   return (
-    <nav style={styles.bottomNav}>
+    <nav style={{
+      ...styles.bottomNav,
+      backgroundColor: colors.navBg,
+      borderColor: 'rgba(255,255,255,0.06)',
+    }}>
       {navItems.map((item) => {
         const Icon = item.icon;
         const active = isActive(item);
@@ -76,17 +52,17 @@ const BottomNav = () => {
             <span
               style={{
                 ...styles.navIconWrap,
-                ...(active ? styles.navIconWrapActive : {}),
+                ...(active ? { ...styles.navIconWrapActive, backgroundColor: colors.navActive } : {}),
               }}
             >
               <Icon
                 size={22}
-                color={active ? '#FFFFFF' : '#8E8EA0'}
+                color={active ? colors.navTextActive : colors.navText}
               />
             </span>
             <span style={{
               ...styles.navLabel,
-              ...(active ? styles.navLabelActive : {}),
+              ...(active ? { ...styles.navLabelActive, color: colors.navTextActive } : { color: colors.navText }),
             }}>
               {item.label}
             </span>
@@ -104,11 +80,10 @@ const styles = {
     left: '50%',
     transform: 'translateX(-50%)',
     width: 'calc(100% - 32px)',
-    maxWidth: '400px',
-    backgroundColor: '#0A0F1E',
+    maxWidth: '400.50px',
     borderRadius: '50px',
-    border: '1px solid rgba(255,255,255,0.08)',
-    boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
+    border: '1px solid',
+    boxShadow: '0 8px 32px rgba(15, 23, 42, 0.3)',
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
@@ -136,11 +111,10 @@ const styles = {
     transition: 'all 0.2s',
   },
   navIconWrapActive: {
-    backgroundColor: '#1A6FD4',
+    backgroundColor: '#1A56DB',
   },
   navLabel: {
     fontSize: '10px',
-    color: '#8E8EA0',
     fontWeight: '500',
     transition: 'color 0.2s',
   },
